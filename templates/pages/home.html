@@ -1,0 +1,401 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Кондиционирование - Дышите легко. Живите комфортно.{% endblock %}
+
+{% block content %}
+    <!-- ============================================ -->
+    <!-- ПЕРВЫЙ ФРЕЙМ - Главная секция лендинга -->
+    <!-- ============================================ -->
+    <section class="frame-1">
+        <!-- Фоновое изображение - текстура бетонной стены -->
+        <div class="frame-1-bg">
+            <img src="{% static 'images/фон 1.png' %}" alt="Фон" class="bg-image">
+        </div>
+        
+        <!-- ============================================ -->
+        <!-- ВЕРХНЯЯ ЧАСТЬ - Заголовок, фото и телефон -->
+        <!-- ============================================ -->
+        <div class="frame-1-header">
+            <!-- Левая часть: Декоративное фото кошки с кондиционером -->
+            <div class="header-cat">
+                <img src="{% static 'images/кошка и кондер.png' %}" alt="Кошка и кондиционер" class="header-cat-image">
+            </div>
+            <!-- Центральная часть: Главный слоган компании -->
+            <h1 class="main-slogan">Дышите легко. Живите комфортно.</h1>
+            <!-- Правая часть: Контактный телефон (без ссылки, просто текст) -->
+            <div class="header-phone">
+                <span class="phone-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="#4CAF50"/>
+                    </svg>
+                </span>
+                <span class="phone-text">+7 993 443 01 01</span>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ОСНОВНОЙ КОНТЕНТ - Список услуг компании -->
+        <!-- ============================================ -->
+        <div class="frame-1-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Левая колонка: Список услуг с зелеными галочками и контакты -->
+                    <div class="col-lg-6 col-md-6 services-column">
+                        <ul class="services-list">
+                            <!-- Первая услуга: Профессиональный подбор системы -->
+                            <li class="shadow-lg">
+                                <span class="check-icon shadow">✓</span>
+                                <span class="service-text">Профессиональный подбор системы Кондиционирования с учётом всех параметров Вашего пространства, бюджета и задач</span>
+                            </li>
+                            <!-- Вторая услуга: Поставка оборудования -->
+                            <li class="shadow-lg">
+                                <span class="check-icon shadow">✓</span>
+                                <span class="service-text">Поставляем профессиональные системы и Надёжное оборудование</span>
+                            </li>
+                            <!-- Третья услуга: Монтаж и обслуживание -->
+                            <li class="shadow-lg">
+                                <span class="check-icon shadow">✓</span>
+                                <span class="service-text">Качественный монтаж по всем стандартам с последующим сервисным обслуживанием</span>
+                            </li>
+                        </ul>
+                        
+                        <!-- Контактная информация компании -->
+                        <div class="contacts-section">
+                            <div class="contacts-card shadow-lg">
+                                <!-- Заголовок секции контактов -->
+                                <h3 class="contacts-title">Контакты:</h3>
+                                <!-- Адрес офиса компании -->
+                                <p class="address">г. Майкоп, улица Хакурате 651</p>
+                                <!-- Телефон для связи (без ссылки, просто текст) -->
+                                <p class="phone-footer">+7 993 443 01 01</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Правая колонка: Коллаж с фото -->
+                    <div class="col-lg-6 col-md-6 images-column">
+                        <div class="images-collage">
+                            <!-- Первое фото: Кондиционер на природном камне (верхний ряд, первая колонка) -->
+                            <div class="collage-item">
+                                <img src="{% static 'images/кондер на камне.png' %}" alt="Кондиционер на камне" class="collage-image">
+                            </div>
+                            <!-- Второе фото: Процесс монтажа кондиционера (верхний ряд, вторая колонка) -->
+                            <div class="collage-item">
+                                <img src="{% static 'images/монтаж.png' %}" alt="Монтаж" class="collage-image">
+                            </div>
+                            <!-- Третье фото: Здание с рабочим-альпинистом (верхний ряд, третья колонка) -->
+                            <div class="collage-item">
+                                <img src="{% static 'images/здание и альпинист.png' %}" alt="Здание и альпинист" class="collage-image">
+                            </div>
+                            <!-- Четвертое фото: Многоэтажное здание с кондиционерами (нижний ряд, первая колонка) -->
+                            <div class="collage-item">
+                                <img src="{% static 'images/большое здание по центру.png' %}" alt="Большое здание" class="collage-image">
+                            </div>
+                            <!-- Пятое фото: Продукт MITSUDAI Sento (нижний ряд, занимает 2 колонки) -->
+                            <div class="collage-item collage-item-mitsuda">
+                                <img src="{% static 'images/mitsuda.png' %}" alt="MITSUDAI Sento" class="collage-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ВТОРОЙ ФРЕЙМ - Фундамент для комфорта -->
+    <!-- ============================================ -->
+    <section class="frame-2">
+        <!-- Фоновое изображение - тот же фон что и в первом фрейме -->
+        <div class="frame-2-bg">
+            <img src="{% static 'images/фон 1.png' %}" alt="Фон" class="bg-image">
+        </div>
+        
+        <!-- ============================================ -->
+        <!-- ВЕРХНЯЯ ЧАСТЬ - Заголовок и фото кошки -->
+        <!-- ============================================ -->
+        <div class="frame-2-header">
+            <!-- Левая часть: Заголовок строго в 2 строки -->
+            <div class="frame-2-title-section">
+                <h2 class="frame-2-title">
+                    <span class="frame-2-title-line1">Фундамент для Вашего комфорта –</span><br>
+                    <span class="frame-2-title-line2">безупречная техника</span>
+                </h2>
+            </div>
+            <!-- Правая часть: Фото кошки с кондиционером -->
+            <div class="frame-2-cat">
+                <img src="{% static 'images/кошка и кондер.png' %}" alt="Кошка и кондиционер" class="frame-2-cat-image">
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- СРЕДНЯЯ ЧАСТЬ - Три фото под заголовком и текст справа -->
+        <!-- ============================================ -->
+        <div class="frame-2-middle">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Левая часть: Три фото равномерно распределены (70% ширины) -->
+                    <div class="col-lg-7 col-md-7 frame-2-images-left">
+                        <div class="frame-2-images-row">
+                            <div class="frame-2-image-item">
+                                <img src="{% static 'images/frame2_1.jpg' %}" alt="Фото 1" class="frame-2-image">
+                            </div>
+                            <div class="frame-2-image-item">
+                                <img src="{% static 'images/frame2_2.jpg' %}" alt="Фото 2" class="frame-2-image">
+                            </div>
+                            <div class="frame-2-image-item">
+                                <img src="{% static 'images/frame2_3.jpg' %}" alt="Фото 3" class="frame-2-image">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Правая часть: Текст строго в 2 строки (30% ширины) -->
+                    <div class="col-lg-5 col-md-5 frame-2-text-right">
+                        <p class="frame-2-text">
+                            <span class="frame-2-text-line1">Оборудование, которое</span><br>
+                            <span class="frame-2-text-line2">работает, а не существует</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- НИЖНЯЯ ЧАСТЬ - Три фото по центру -->
+        <!-- ============================================ -->
+        <div class="frame-2-bottom">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 frame-2-images-bottom">
+                        <div class="frame-2-images-row-bottom">
+                            <div class="frame-2-image-item">
+                                <img src="{% static 'images/frame2_4.jpg' %}" alt="Фото 4" class="frame-2-image">
+                            </div>
+                            <div class="frame-2-image-item">
+                                <img src="{% static 'images/frame2_5.jpg' %}" alt="Фото 5" class="frame-2-image">
+                            </div>
+                            <div class="frame-2-image-item">
+                                <img src="{% static 'images/frame2_6.jpg' %}" alt="Фото 6" class="frame-2-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ТРЕТИЙ ФРЕЙМ - Установка как искусство -->
+    <!-- ============================================ -->
+    <section class="frame-3">
+        <!-- Фоновое изображение - тот же фон что и в первом фрейме -->
+        <div class="frame-3-bg">
+            <img src="{% static 'images/фон 1.png' %}" alt="Фон" class="bg-image">
+        </div>
+        
+        <!-- ============================================ -->
+        <!-- ВЕРХНЯЯ ЧАСТЬ - Три элемента в ряд -->
+        <!-- ============================================ -->
+        <div class="frame-3-top">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Левая часть: Фото кошки + текст -->
+                    <div class="col-lg-4 col-md-4 frame-3-top-left">
+                        <div class="frame-3-cat-section">
+                            <img src="{% static 'images/кошка и кондер.png' %}" alt="Кошка и кондиционер" class="frame-3-cat-image">
+                            <p class="frame-3-art-text">Установка как искусство.<br>Результат как наука.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Центральная часть: Фото кондиционера -->
+                    <div class="col-lg-4 col-md-4 frame-3-top-center">
+                        <div class="frame-3-image-item">
+                            <img src="{% static 'images/кондер на камне.png' %}" alt="Кондиционер" class="frame-3-image">
+                        </div>
+                    </div>
+                    
+                    <!-- Правая часть: Текст в 3 строки -->
+                    <div class="col-lg-4 col-md-4 frame-3-top-right">
+                        <p class="frame-3-quality-text">
+                            <span class="frame-3-quality-line1">Аккуратно.</span><br>
+                            <span class="frame-3-quality-line2">Точно.</span><br>
+                            <span class="frame-3-quality-line3">Надёжно.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- СРЕДНЯЯ ЧАСТЬ - Фото слева и справа -->
+        <!-- ============================================ -->
+        <div class="frame-3-middle">
+            <div class="container-fluid">
+                <!-- Верхний ряд: два фото -->
+                <div class="row frame-3-middle-top-row">
+                    <!-- Левая часть: Фото рабочего -->
+                    <div class="col-lg-6 col-md-6 frame-3-middle-left">
+                        <div class="frame-3-image-item frame-3-image-small-left">
+                            <img src="{% static 'images/монтаж.png' %}" alt="Монтаж" class="frame-3-image">
+                        </div>
+                    </div>
+                    
+                    <!-- Правая часть: Фото монтаж1 -->
+                    <div class="col-lg-6 col-md-6 frame-3-middle-right">
+                        <div class="frame-3-image-item frame-3-image-small-right">
+                            <img src="{% static 'images/монтаж1.png' %}" alt="Монтаж 1" class="frame-3-image">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Нижний ряд: три фото равномерно распределены -->
+                <div class="row frame-3-middle-bottom-row">
+                    <div class="col-12 frame-3-images-row-container">
+                        <div class="frame-3-images-row">
+                            <div class="frame-3-image-item">
+                                <img src="{% static 'images/монтаж2.png' %}" alt="Монтаж 2" class="frame-3-image">
+                            </div>
+                            <div class="frame-3-image-item">
+                                <img src="{% static 'images/монтаж3.png' %}" alt="Кондиционер" class="frame-3-image">
+                            </div>
+                            <div class="frame-3-image-item">
+                                <img src="{% static 'images/мотаж3.png' %}" alt="Здание и альпинист" class="frame-3-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- НИЖНЯЯ ЧАСТЬ - Текст по центру -->
+        <!-- ============================================ -->
+        <div class="frame-3-bottom">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 frame-3-bottom-content">
+                        <p class="frame-3-bottom-text">
+                            <span class="frame-3-bottom-line1">Без суеты. Без грязи. Без скрытых проблем.</span><br>
+                            <span class="frame-3-bottom-line2">Звоните +7 993 443 01 01</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ЧЕТВЕРТЫЙ ФРЕЙМ - Финальная секция -->
+    <!-- ============================================ -->
+    <section class="frame-4">
+        <!-- Фоновое изображение - тот же фон что и в первом фрейме -->
+        <div class="frame-4-bg">
+            <img src="{% static 'images/фон 1.png' %}" alt="Фон" class="bg-image">
+        </div>
+        
+        <!-- ============================================ -->
+        <!-- КОНТЕНТ - Текст распределенный по всей рамке -->
+        <!-- ============================================ -->
+        <div class="frame-4-content">
+            <div class="container-fluid">
+                <!-- Верхняя левая часть: Заголовок -->
+                <div class="frame-4-top-left">
+                    <h2 class="frame-4-title">Что мы делаем:</h2>
+                </div>
+                
+                <!-- Центральная часть: Список услуг -->
+                <div class="frame-4-services">
+                    <ul class="frame-4-services-list">
+                        <li class="frame-4-service-item">
+                            <span class="frame-4-check-icon">✓</span>
+                            <span class="frame-4-service-text">Установка сплит систем</span>
+                        </li>
+                        <li class="frame-4-service-item">
+                            <span class="frame-4-check-icon">✓</span>
+                            <span class="frame-4-service-text">Штробление и закладка коммуникаций (фреонотрассы) в стены, на стадии ремонта</span>
+                        </li>
+                        <li class="frame-4-service-item">
+                            <span class="frame-4-check-icon">✓</span>
+                            <span class="frame-4-service-text">Установка на заложенную трассу сплит системы</span>
+                        </li>
+                        <li class="frame-4-service-item">
+                            <span class="frame-4-check-icon">✓</span>
+                            <span class="frame-4-service-text">Антибактериальная чистка сплит систем</span>
+                        </li>
+                        <li class="frame-4-service-item">
+                            <span class="frame-4-check-icon">✓</span>
+                            <span class="frame-4-service-text">Услуги промышленного альпиниста! Для меня нет сложности установить сплит систему в любом месте!</span>
+                        </li>
+                        <li class="frame-4-service-item">
+                            <span class="frame-4-check-icon">✓</span>
+                            <span class="frame-4-service-text">Диагностика, обслуживание, заправка и ремонт сплит систем!</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Нижняя правая часть: Текст -->
+                <div class="frame-4-bottom-right">
+                    <p class="frame-4-bottom-text">Звоните +7 993 443 01 01</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ПЯТЫЙ ФРЕЙМ - Равномерное распределение -->
+    <!-- ============================================ -->
+    <section class="frame-5">
+        <!-- Фоновое изображение - тот же фон что и в первом фрейме -->
+        <div class="frame-5-bg">
+            <img src="{% static 'images/фон 1.png' %}" alt="Фон" class="bg-image">
+        </div>
+        
+        <!-- ============================================ -->
+        <!-- КОНТЕНТ - Текст равномерно распределенный по всей рамке -->
+        <!-- ============================================ -->
+        <div class="frame-5-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 frame-5-text-wrapper">
+                        <h2 class="frame-5-title">Почему к нам обращаются:</h2>
+                        <ul class="frame-5-services-list">
+                            <li class="frame-5-service-item">
+                                <span class="frame-5-check-icon">🔥</span>
+                                <span class="frame-5-service-text">Подскажу с выгодным и практичным местом установки сплит системы!</span>
+                            </li>
+                            <li class="frame-5-service-item">
+                                <span class="frame-5-check-icon">🔥</span>
+                                <span class="frame-5-service-text">Помогу выбрать сплит систему с лучшей ценой и качеством (есть партнерский магазин - склад)!</span>
+                            </li>
+                            <li class="frame-5-service-item">
+                                <span class="frame-5-check-icon">🔥</span>
+                                <span class="frame-5-service-text">Работаю профессиональным оборудованием.</span>
+                            </li>
+                            <li class="frame-5-service-item">
+                                <span class="frame-5-check-icon">🔥</span>
+                                <span class="frame-5-service-text">Бурение алмазной коронкой дрелью с микроударом с пылесосом! Пыли нет и красивое ровное отверстие на фасаде!</span>
+                            </li>
+                            <li class="frame-5-service-item">
+                                <span class="frame-5-check-icon">🔥</span>
+                                <span class="frame-5-service-text">Материал только толстостенная медная труба и провод ГОСТ!!</span>
+                            </li>
+                            <li class="frame-5-service-item">
+                                <span class="frame-5-check-icon">🔥</span>
+                                <span class="frame-5-service-text">Работаю круглый год ***!!!</span>
+                            </li>
+                            <li class="frame-5-service-item">
+                                <span class="frame-5-check-icon">🔥</span>
+                                <span class="frame-5-service-text">Гарантия на все виды работ!</span>
+                            </li>
+                        </ul>
+                        <p class="frame-5-bottom-text">Звоните +7 993 443 01 01</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

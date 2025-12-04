@@ -1,0 +1,34 @@
+# Настройки для Django на Beget
+# Перенаправление всех запросов на passenger_wsgi.py
+
+PassengerEnabled On
+PassengerAppRoot /home/u1234567/domains/yourdomain.com/public_html
+PassengerBaseURI /
+PassengerPython /home/u1234567/venv/bin/python3
+PassengerAppType wsgi
+PassengerStartupFile passenger_wsgi.py
+
+# Включаем обработку статических файлов через Apache
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Если файл или директория существуют, используем их напрямую
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    
+    # Перенаправляем все остальные запросы на Django
+    RewriteRule ^(.*)$ /passenger_wsgi.py [QSA,L]
+</IfModule>
+
+# Настройки для статических файлов
+Alias /static /home/u1234567/domains/yourdomain.com/public_html/staticfiles
+<Directory /home/u1234567/domains/yourdomain.com/public_html/staticfiles>
+    Require all granted
+</Directory>
+
+# Настройки для медиа файлов
+Alias /media /home/u1234567/domains/yourdomain.com/public_html/media
+<Directory /home/u1234567/domains/yourdomain.com/public_html/media>
+    Require all granted
+</Directory>
+

@@ -1,0 +1,2336 @@
+
+/* ============================================ */
+/* ГЛОБАЛЬНЫЕ СТИЛИ - Сброс и базовые настройки */
+/* ============================================ */
+
+/* Универсальный селектор: сброс всех отступов и использование border-box */
+* {
+    margin: 0; /* Убираем внешние отступы у всех элементов */
+    padding: 0; /* Убираем внутренние отступы у всех элементов */
+    box-sizing: border-box; /* Padding и border включаются в общую ширину/высоту элемента */
+}
+
+/* Стили для основного тела документа */
+body {
+    font-family: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; /* Приоритетный список шрифтов */
+    line-height: 1.6; /* Межстрочный интервал для лучшей читаемости */
+    color: #333; /* Основной цвет текста - темно-серый */
+    background-color: #fff; /* Белый фон страницы */
+    overflow-x: hidden; /* Скрываем горизонтальную прокрутку */
+}
+
+/* Контейнер для ограничения максимальной ширины контента */
+.container {
+    max-width: 1920px; /* Максимальная ширина для больших экранов */
+    margin: 0 auto; /* Центрирование контейнера по горизонтали */
+    padding: 0; /* Без внутренних отступов */
+    width: 100%; /* Ширина 100% до достижения max-width */
+}
+
+/* ============================================ */
+/* ПЕРВЫЙ ФРЕЙМ - Главная секция лендинга */
+/* ============================================ */
+
+/* Основной контейнер первого фрейма */
+.frame-1 {
+    position: relative; /* Относительное позиционирование для абсолютно позиционированных дочерних элементов */
+    width: 100%; /* Полная ширина экрана */
+    min-height: 100vh; /* Минимальная высота равна высоте видимой области (viewport height) */
+    overflow: hidden; /* Скрываем переполнение контента за границами */
+    background: #1a1a1a; /* Темный фон на случай, если изображение не загрузится */
+}
+
+/* Контейнер для фонового изображения */
+.frame-1-bg {
+    position: absolute; /* Абсолютное позиционирование относительно .frame-1 */
+    top: 0; /* Прижато к верху */
+    left: 0; /* Прижато к левому краю */
+    width: 100%; /* Полная ширина родителя */
+    height: 100%; /* Полная высота родителя */
+    z-index: 0; /* Самый нижний слой - фон */
+}
+
+/* Фоновое изображение - текстура бетонной стены */
+.bg-image {
+    width: 100%; /* Полная ширина контейнера */
+    height: 100%; /* Полная высота контейнера */
+    object-fit: cover; /* Изображение заполняет контейнер с сохранением пропорций, обрезая лишнее */
+    object-position: center; /* Центрирование изображения в контейнере */
+    opacity: 0.9; /* Небольшая прозрачность для эффекта наложения */
+}
+
+/* ============================================ */
+/* ВЕРХНЯЯ ЧАСТЬ - Заголовок, фото и телефон */
+/* ============================================ */
+
+/* Контейнер верхней части: заголовок, фото кошки и телефон в одну линию */
+.frame-1-header {
+    position: relative; /* Относительное позиционирование для z-index */
+    z-index: 10; /* Слой выше фона, но ниже модальных окон */
+    padding: 50px 60px 30px; /* Внутренние отступы: сверху 50px, по бокам 60px, снизу 30px */
+    display: flex; /* Используем Flexbox для горизонтального расположения элементов */
+    flex-direction: row; /* Элементы в ряд (горизонтально) */
+    align-items: center; /* Вертикальное выравнивание по центру */
+    justify-content: space-between; /* Распределение пространства между элементами */
+    gap: 20px; /* Расстояние между элементами */
+}
+
+/* Контейнер для фото кошки с кондиционером (слева) */
+.header-cat {
+    flex: 0 0 auto; /* Не растягивается и не сжимается, фиксированный размер */
+    display: flex; /* Flexbox для выравнивания изображения */
+    align-items: center; /* Вертикальное выравнивание по центру */
+    justify-content: flex-start; /* Выравнивание по левому краю */
+}
+
+/* Изображение кошки с кондиционером */
+.header-cat-image {
+    max-width: 180px; /* Максимальная ширина изображения */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    object-fit: contain; /* Изображение полностью помещается в контейнер без обрезки */
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)); /* Тень для объема */
+}
+
+/* Главный слоган компании (по центру) */
+.main-slogan {
+    font-family: 'Playfair Display', 'Cormorant Garamond', 'EB Garamond', serif; /* Декоративные шрифты с засечками */
+    font-weight: 700; /* Жирное начертание */
+    font-size: 64px; /* Крупный размер шрифта */
+    line-height: 1.3; /* Межстрочный интервал */
+    color: #fff; /* Белый цвет текста - единый для всех фреймов */
+    text-align: center; /* Выравнивание по центру */
+    margin: 0; /* Без внешних отступов */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Тень для читаемости */
+    letter-spacing: 2px; /* Расстояние между буквами для элегантности */
+    padding: 0; /* Без внутренних отступов */
+    background: none; /* Без фона */
+    backdrop-filter: none; /* Без размытия фона */
+    border-radius: 0; /* Без скругления углов */
+    flex: 1 1 auto; /* Занимает все доступное пространство по центру */
+}
+
+/* Контейнер для телефона (справа) */
+.header-phone {
+    flex: 0 0 auto; /* Фиксированный размер, не растягивается */
+    display: flex; /* Flexbox для горизонтального расположения иконки и текста */
+    align-items: center; /* Вертикальное выравнивание по центру */
+    gap: 10px; /* Расстояние между иконкой и текстом */
+    color: #fff; /* Белый цвет текста */
+    font-size: 24px; /* Размер шрифта */
+    font-weight: 600; /* Полужирное начертание */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Тень для читаемости на темном фоне */
+}
+
+/* Иконка телефона (SVG) */
+.header-phone .phone-icon {
+    display: inline-flex; /* Flexbox для выравнивания SVG */
+    align-items: center; /* Вертикальное выравнивание */
+    justify-content: center; /* Горизонтальное выравнивание */
+    width: 28px; /* Ширина иконки */
+    height: 28px; /* Высота иконки */
+    text-shadow: none; /* Убираем тень от родителя для иконки */
+}
+
+.header-phone .phone-icon svg {
+    width: 100%; /* Ширина SVG равна контейнеру */
+    height: 100%; /* Высота SVG равна контейнеру */
+}
+
+/* Текст номера телефона */
+.phone-text {
+    display: inline-block; /* Блочный элемент в строке */
+    white-space: nowrap; /* Запрет переноса текста на новую строку */
+}
+
+/* ============================================ */
+/* ОСНОВНОЙ КОНТЕНТ - Список услуг компании */
+/* ============================================ */
+
+/* Контейнер основного контента с услугами */
+.frame-1-content {
+    position: relative; /* Относительное позиционирование для z-index */
+    z-index: 10; /* Слой выше фона */
+    padding: 40px 60px 40px; /* Внутренние отступы: сверху 40px, по бокам 60px, снизу 40px */
+    min-height: 500px; /* Минимальная высота для обеспечения достаточного пространства */
+    display: flex; /* Flexbox для растягивания колонок */
+    flex-direction: column; /* Вертикальное расположение */
+}
+
+.frame-1-content .container-fluid {
+    display: flex; /* Flexbox для растягивания */
+    flex: 1; /* Растягивается на всю доступную высоту */
+    flex-direction: column; /* Вертикальное расположение */
+}
+
+.frame-1-content .row {
+    display: flex; /* Flexbox для растягивания колонок */
+    flex: 1; /* Растягивается на всю доступную высоту */
+    align-items: stretch; /* Растягивание колонок по высоте */
+}
+
+/* Колонка со списком услуг (левая часть) */
+.services-column {
+    position: relative; /* Относительное позиционирование */
+    z-index: 15; /* Слой выше других элементов контента */
+    padding-left: 50px; /* Отступ слева для визуального разделения */
+    padding-right: 30px; /* Отступ справа */
+    padding-top: 0; /* Без отступа сверху для выравнивания */
+    padding-bottom: 0; /* Без отступа снизу */
+    display: flex; /* Flexbox для вертикального расположения списка услуг и контактов */
+    flex-direction: column; /* Вертикальное расположение */
+    height: 100%; /* Высота 100% для выравнивания с правой колонкой */
+}
+
+/* Список услуг (ul) */
+.services-list {
+    list-style: none; /* Убираем стандартные маркеры списка */
+    padding: 0; /* Без внутренних отступов */
+    margin: 0; /* Без внешних отступов */
+}
+
+/* Отдельный элемент услуги (li) */
+.services-list li {
+    display: flex; /* Flexbox для горизонтального расположения галочки и текста */
+    align-items: flex-start; /* Выравнивание по верхнему краю (для многострочного текста) */
+    gap: 15px; /* Расстояние между галочкой и текстом */
+    margin-bottom: 40px; /* Отступ снизу между элементами списка */
+    padding: 0; /* Без внутренних отступов - убраны видимые контейнеры */
+    background: none; /* Без фона - убраны видимые контейнеры */
+    backdrop-filter: none; /* Без размытия фона - убраны видимые контейнеры */
+    border-radius: 0; /* Без скругления углов - убраны видимые контейнеры */
+    /* border: none; */ /* Без рамки - убраны видимые контейнеры */
+}
+
+/* Последний элемент списка без нижнего отступа */
+.services-list li:last-child {
+    margin-bottom: 0; /* Убираем нижний отступ у последнего элемента */
+}
+
+/* Зеленая галочка в кружке */
+.check-icon {
+    display: inline-flex; /* Flexbox для центрирования символа галочки */
+    align-items: center; /* Вертикальное выравнивание по центру */
+    justify-content: center; /* Горизонтальное выравнивание по центру */
+    width: 36px; /* Ширина кружка */
+    height: 36px; /* Высота кружка (квадрат) */
+    background: linear-gradient(135deg, #4CAF50, #388E3C); /* Зеленый градиентный фон */
+    color: #fff; /* Белый цвет символа галочки */
+    border-radius: 50%; /* Круглая форма */
+    font-size: 22px; /* Размер символа галочки */
+    font-weight: bold; /* Жирное начертание */
+    flex-shrink: 0; /* Запрет сжатия при нехватке места */
+    margin-top: 2px; /* Небольшой отступ сверху для визуального выравнивания */
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Полупрозрачная белая рамка */
+}
+
+/* Текст описания услуги */
+.service-text {
+    font-size: 18px; /* Размер шрифта */
+    line-height: 1.7; /* Межстрочный интервал для удобочитаемости */
+    color: #fff; /* Белый цвет текста */
+    font-weight: 400; /* Обычное начертание */
+    letter-spacing: 0.2px; /* Небольшое расстояние между буквами */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); /* Тень для читаемости на темном фоне */
+}
+
+/* Правая колонка с коллажем */
+.images-column {
+    position: relative; /* Относительное позиционирование */
+    z-index: 15; /* Слой выше других элементов контента */
+    padding-top: 0; /* Без отступа сверху для выравнивания */
+    padding-right: 50px; /* Отступ справа для визуального разделения */
+    padding-left: 30px; /* Отступ слева */
+    padding-bottom: 0; /* Без отступа снизу для выравнивания */
+    display: flex; /* Flexbox для растягивания коллажа */
+    flex-direction: column; /* Вертикальное расположение */
+    height: 100%; /* Высота 100% от родительского контейнера */
+    align-items: stretch; /* Растягивание коллажа на всю высоту */
+}
+
+/* ============================================ */
+/* НИЖНЯЯ ЧАСТЬ - Контактная информация */
+/* ============================================ */
+
+/* Контейнер нижней части с контактами */
+.frame-1-footer {
+    position: relative; /* Относительное позиционирование */
+    z-index: 10; /* Слой выше фона */
+    padding: 30px 60px 60px; /* Внутренние отступы: сверху 30px, по бокам 60px, снизу 60px */
+}
+
+/* Секция с контактной информацией (внутри левой колонки) */
+.contacts-section {
+    position: relative; /* Относительное позиционирование */
+    z-index: 15; /* Слой выше других элементов */
+    padding-left: 0; /* Без отступа слева (уже есть у родителя) */
+    padding-right: 0; /* Без отступа справа (уже есть у родителя) */
+    padding-top: 30px; /* Отступ сверху от списка услуг */
+    margin-top: auto; /* Автоматический отступ сверху для размещения внизу колонки */
+}
+
+/* Карточка с контактной информацией */
+.contacts-card {
+    background: none; /* Без фона - убраны видимые контейнеры */
+    backdrop-filter: none; /* Без размытия фона - убраны видимые контейнеры */
+    border-radius: 0; /* Без скругления углов - убраны видимые контейнеры */
+    padding: 0; /* Без внутренних отступов - убраны видимые контейнеры */
+    /* border: none; */ /* Без рамки - убраны видимые контейнеры */
+    width: 100%; /* Ширина карточки равна ширине контейнера (как у левого контента) */
+    display: flex; /* Flexbox для равномерного распределения элементов */
+    flex-direction: column; /* Вертикальное расположение элементов */
+    justify-content: space-between; /* Равномерное распределение по вертикали */
+    min-height: 200px; /* Минимальная высота для равномерного распределения */
+}
+
+/* Заголовок "Контакты:" */
+.contacts-title {
+    font-family: 'Playfair Display', 'Cormorant Garamond', serif; /* Декоративные шрифты с засечками */
+    font-size: 32px; /* Увеличенный размер шрифта */
+    font-weight: 700; /* Жирное начертание */
+    color: #fff; /* Белый цвет текста */
+    margin-bottom: 0; /* Без отступа снизу (распределение через flexbox) */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Тень для читаемости */
+    background: none; /* Без фона */
+    padding: 0; /* Без внутренних отступов */
+    border: none; /* Без рамки */
+    letter-spacing: 1px; /* Расстояние между буквами */
+}
+
+/* Адрес компании */
+.address {
+    font-size: 24px; /* Увеличенный размер шрифта */
+    color: #fff; /* Белый цвет текста */
+    margin-bottom: 0; /* Без отступа снизу (распределение через flexbox) */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); /* Тень для читаемости */
+    line-height: 1.6; /* Межстрочный интервал */
+}
+
+/* Телефон в footer (без ссылки, просто текст) */
+.phone-footer {
+    display: inline-block; /* Блочный элемент в строке */
+    font-size: 28px; /* Увеличенный размер шрифта */
+    font-weight: 600; /* Полужирное начертание */
+    color: #fff; /* Белый цвет текста */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); /* Тень для читаемости */
+    padding: 0; /* Без внутренних отступов (распределение через flexbox) */
+    background: none; /* Без фона */
+    margin-top: auto; /* Автоматический отступ сверху для равномерного распределения */
+    border-radius: 8px; /* Скругление углов */
+    border: 1px solid rgba(255, 107, 53, 0.4); /* Полупрозрачная оранжевая рамка */
+    margin: 0; /* Без внешних отступов */
+}
+
+.product-section {
+    position: relative;
+    z-index: 15;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 40px;
+    padding-bottom: 20px;
+}
+
+.product-card {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 20px;
+    padding: 35px;
+    max-width: 500px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.product-brand {
+    font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: none;
+    padding: 0;
+    border: none;
+}
+
+.product-image-wrapper {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.product-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 250px;
+}
+
+.product-features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    color: #333;
+    padding: 10px 15px;
+    background: rgba(255, 107, 53, 0.05);
+    border-radius: 10px;
+    border-left: 3px solid #FF6B35;
+}
+
+.feature-icon {
+    font-size: 22px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.product-capacity {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #FF6B35, #E55A2B);
+    padding: 12px 20px;
+    border-radius: 12px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Коллаж из фото справа */
+.images-collage {
+    position: relative; /* Относительное позиционирование */
+    z-index: 15; /* Слой наложения - выше фона, но ниже модальных окон */
+    display: grid; /* Используем CSS Grid для создания сетки из фото */
+    grid-template-columns: repeat(3, 1fr); /* Три колонки равной ширины для размещения фото */
+    grid-template-rows: repeat(2, 1fr); /* Две строки равной высоты */
+    gap: 20px; /* Расстояние между элементами сетки (фото) */
+    width: 100%; /* Ширина 100% от доступного пространства */
+    padding: 0 25px; /* Внутренние отступы только по бокам (слева и справа), без верхнего и нижнего */
+    background: none; /* Без фона - убраны видимые контейнеры */
+    backdrop-filter: none; /* Без размытия фона - убраны видимые контейнеры */
+    border-radius: 0; /* Без скругления углов - убраны видимые контейнеры */
+    /* border: none; */ /* Без рамки - убраны видимые контейнеры */
+    flex: 1; /* Растягивается на всю доступную высоту родительского контейнера */
+    min-height: 0; /* Позволяет flex-элементу сжиматься */
+    align-self: stretch; /* Растягивание на всю высоту родительского контейнера */
+}
+
+/* Отдельный элемент коллажа (контейнер для одного фото) */
+.collage-item {
+    position: relative; /* Относительное позиционирование для z-index */
+    width: 100%; /* Полная ширина ячейки сетки */
+    height: 100%; /* Полная высота ячейки сетки */
+    overflow: hidden; /* Скрываем переполнение изображения за границами */
+    border-radius: 0; /* Без скругления углов - убраны видимые контейнеры */
+    box-shadow: none; /* Без тени - убраны видимые контейнеры */
+}
+
+/* Элемент с фото MITSUDAI - помещается полностью без обрезки */
+/* Используется обычный размер без растяжения, стили применяются только к изображению */
+
+/* Изображение внутри элемента коллажа */
+.collage-image {
+    width: 100%; /* Полная ширина контейнера */
+    height: 100%; /* Полная высота контейнера */
+    object-fit: cover; /* Заполнение контейнера с сохранением пропорций, обрезка лишнего */
+    display: block; /* Блочный элемент для устранения нижнего отступа */
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)); /* Тень для объема изображения */
+}
+
+/* Контейнер MITSUDAI - занимает 2 соседних колонки */
+.collage-item-mitsuda {
+    grid-column: span 2; /* Занимает 2 соседних колонки в сетке */
+}
+
+/* Изображение MITSUDAI - растягивается по контейнеру без сохранения пропорций */
+.collage-item-mitsuda .collage-image {
+    object-fit: fill; /* Заполнение контейнера без сохранения пропорций, растягивание по размерам */
+    object-position: center; /* Центрирование изображения в контейнере */
+}
+
+/* Адаптивность */
+@media (max-width: 1600px) {
+    .main-slogan {
+        font-size: 56px;
+    }
+
+    .header-cat-image {
+        max-width: 160px;
+    }
+
+    .header-phone {
+        font-size: 22px;
+    }
+
+    .phone-icon {
+        font-size: 26px;
+    }
+
+    .images-column {
+        padding-right: 40px;
+    }
+
+    .images-collage {
+        gap: 18px;
+        padding: 0 22px; /* Только боковые отступы */
+    }
+}
+
+@media (max-width: 1400px) {
+    .main-slogan {
+        font-size: 48px;
+    }
+
+    .header-cat-image {
+        max-width: 140px;
+    }
+
+    .header-phone {
+        font-size: 20px;
+    }
+
+    .phone-icon {
+        font-size: 24px;
+    }
+
+    .frame-1-header {
+        padding: 40px 50px 25px;
+        gap: 15px;
+    }
+
+    .frame-1-content {
+        padding: 50px 50px 35px;
+    }
+
+    .frame-1-footer {
+        padding: 40px 50px 70px;
+    }
+
+    .images-column {
+        padding-right: 30px;
+    }
+
+    .images-collage {
+        gap: 15px;
+        padding: 0 20px; /* Только боковые отступы */
+    }
+}
+
+@media (max-width: 1200px) {
+    .main-slogan {
+        font-size: 40px;
+    }
+
+    .header-cat-image {
+        max-width: 120px;
+    }
+
+    .header-phone {
+        font-size: 18px;
+    }
+
+    .phone-icon {
+        font-size: 22px;
+    }
+
+    .frame-1-header {
+        padding: 35px 40px 20px;
+        gap: 12px;
+    }
+
+    .frame-1-content {
+        padding: 40px 40px 30px;
+    }
+
+    .frame-1-footer {
+        padding: 35px 40px 60px;
+    }
+
+    .services-column {
+        padding-left: 30px;
+    }
+
+    .service-text {
+        font-size: 16px;
+    }
+
+    .images-column {
+        padding-right: 20px;
+    }
+
+    .images-collage {
+        gap: 12px;
+        padding: 0 18px; /* Только боковые отступы */
+    }
+}
+
+@media (max-width: 992px) {
+    .main-slogan {
+        font-size: 34px;
+    }
+
+    .header-cat-image {
+        max-width: 100px;
+    }
+
+    .header-phone {
+        font-size: 16px;
+    }
+
+    .phone-icon {
+        font-size: 20px;
+    }
+
+    .frame-1-header {
+        padding: 30px 30px 15px;
+        gap: 10px;
+    }
+
+    .frame-1-content {
+        padding: 35px 30px 25px;
+    }
+
+    .frame-1-footer {
+        padding: 30px 30px 50px;
+    }
+
+    .services-column {
+        padding-left: 20px;
+        padding-top: 15px;
+    }
+
+    .services-list li {
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+
+    .service-text {
+        font-size: 15px;
+    }
+
+    .contacts-section {
+        padding-left: 0; /* Без отступа слева (уже есть у родителя) */
+        padding-right: 0; /* Без отступа справа (уже есть у родителя) */
+        padding-top: 25px; /* Отступ сверху от списка услуг */
+        margin-bottom: 0; /* Без отступа снизу */
+    }
+
+    .contacts-card {
+        max-width: 100%;
+    }
+
+    .product-section {
+        padding-right: 20px;
+    }
+
+    .product-card {
+        max-width: 100%;
+        margin-top: 0;
+    }
+
+    .images-column {
+        padding-right: 15px;
+        padding-top: 15px;
+    }
+
+    .images-collage {
+        gap: 10px;
+        padding: 0 15px; /* Только боковые отступы */
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .main-slogan {
+        font-size: 24px;
+        letter-spacing: 1px;
+    }
+
+    .header-cat-image {
+        max-width: 80px;
+    }
+
+    .header-phone {
+        font-size: 14px;
+    }
+
+    .phone-icon {
+        font-size: 18px;
+    }
+
+    .frame-1-header {
+        padding: 25px 20px 15px;
+        gap: 8px;
+    }
+
+    .frame-1-content {
+        padding: 30px 20px 20px;
+        min-height: auto;
+    }
+
+    .frame-1-footer {
+        padding: 25px 20px 40px;
+    }
+
+    .services-column {
+        padding-left: 0;
+        padding-top: 10px;
+    }
+
+    .services-list li {
+        padding: 16px;
+        margin-bottom: 15px;
+    }
+
+    .check-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 20px;
+    }
+
+    .service-text {
+        font-size: 14px;
+    }
+
+    .contacts-section {
+        padding-left: 0; /* Без отступа слева (уже есть у родителя) */
+        padding-right: 0; /* Без отступа справа (уже есть у родителя) */
+        padding-top: 20px; /* Отступ сверху от списка услуг */
+        margin-bottom: 0; /* Без отступа снизу */
+    }
+
+    .contacts-card {
+        padding: 20px;
+    }
+
+    .contacts-title {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .address {
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+
+    .phone-footer {
+        font-size: 18px;
+        padding: 8px 16px;
+    }
+
+    .product-section {
+        padding-right: 0;
+    }
+
+    .product-card {
+        padding: 25px;
+    }
+
+    .product-brand {
+        font-size: 26px;
+        margin-bottom: 15px;
+    }
+
+    .product-features {
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .feature-item {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .product-capacity {
+        font-size: 18px;
+        padding: 10px 16px;
+    }
+
+    .images-column {
+        padding-right: 10px;
+        padding-top: 10px;
+    }
+
+    .images-collage {
+        gap: 8px;
+        padding: 0 12px; /* Только боковые отступы */
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .main-slogan {
+        font-size: 18px;
+        letter-spacing: 0.5px;
+    }
+
+    .header-cat-image {
+        max-width: 60px;
+    }
+
+    .header-phone {
+        font-size: 12px;
+        gap: 6px;
+    }
+
+    .phone-icon {
+        font-size: 16px;
+    }
+
+    .frame-1-header {
+        padding: 20px 15px 12px;
+        gap: 6px;
+    }
+
+    .frame-1-content {
+        padding: 25px 15px 15px;
+    }
+
+    .frame-1-footer {
+        padding: 20px 15px 35px;
+    }
+
+    .services-list li {
+        flex-direction: row;
+        gap: 12px;
+        padding: 14px;
+        margin-bottom: 12px;
+    }
+
+    .check-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+    }
+
+    .service-text {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .contacts-card {
+        padding: 18px;
+    }
+
+    .contacts-title {
+        font-size: 18px;
+    }
+
+    .address {
+        font-size: 14px;
+    }
+
+    .phone-footer {
+        font-size: 16px;
+        padding: 7px 14px;
+    }
+
+    .product-card {
+        padding: 20px;
+    }
+
+    .product-brand {
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+
+    .product-image {
+        max-height: 180px;
+    }
+
+    .product-features {
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    .feature-item {
+        padding: 7px 10px;
+        font-size: 13px;
+    }
+
+    .feature-icon {
+        font-size: 18px;
+    }
+
+    .product-capacity {
+        font-size: 16px;
+        padding: 8px 14px;
+    }
+
+    .images-column {
+        padding-right: 0;
+        padding-top: 10px;
+    }
+
+    .images-collage {
+        gap: 6px;
+        padding: 0 10px; /* Только боковые отступы */
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Дополнительные улучшения для очень маленьких экранов */
+@media (max-width: 400px) {
+    .main-slogan {
+        font-size: 18px;
+        padding: 0;
+        letter-spacing: 0.5px;
+    }
+
+    .header-cat-image {
+        max-width: 50px;
+    }
+
+    .header-phone {
+        font-size: 11px;
+    }
+
+    .phone-icon {
+        font-size: 14px;
+    }
+
+    .images-column {
+        padding-right: 0;
+        padding-top: 10px;
+    }
+
+    .images-collage {
+        gap: 5px;
+        padding: 0 8px; /* Только боковые отступы */
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+}
+
+/* ============================================ */
+/* ВТОРОЙ ФРЕЙМ - Фундамент для комфорта */
+/* ============================================ */
+
+/* Основной контейнер второго фрейма */
+.frame-2 {
+    position: relative; /* Относительное позиционирование для абсолютно позиционированных дочерних элементов */
+    width: 100%; /* Полная ширина экрана */
+    min-height: 100vh; /* Минимальная высота равна высоте видимой области (viewport height) */
+    overflow: hidden; /* Скрываем переполнение контента за границами */
+    background: #1a1a1a; /* Темный фон на случай, если изображение не загрузится */
+}
+
+/* Контейнер для фонового изображения второго фрейма */
+.frame-2-bg {
+    position: absolute; /* Абсолютное позиционирование относительно .frame-2 */
+    top: 0; /* Прижато к верху */
+    left: 0; /* Прижато к левому краю */
+    width: 100%; /* Полная ширина родителя */
+    height: 100%; /* Полная высота родителя */
+    z-index: 0; /* Самый нижний слой - фон */
+}
+
+/* ============================================ */
+/* ВЕРХНЯЯ ЧАСТЬ - Заголовок и фото кошки */
+/* ============================================ */
+
+/* Контейнер верхней части второго фрейма */
+.frame-2-header {
+    position: relative; /* Относительное позиционирование для z-index */
+    z-index: 10; /* Слой выше фона */
+    padding: 50px 60px 30px; /* Внутренние отступы: сверху 50px, по бокам 60px, снизу 30px */
+    display: flex; /* Используем Flexbox для горизонтального расположения элементов */
+    flex-direction: row; /* Элементы в ряд (горизонтально) */
+    align-items: flex-start; /* Выравнивание по верхнему краю */
+    justify-content: space-between; /* Распределение пространства между элементами */
+    gap: 20px; /* Расстояние между элементами */
+}
+
+/* Секция с заголовком (левая часть, 70% ширины) */
+.frame-2-title-section {
+    flex: 0 0 90%; /* Занимает 70% ширины, не растягивается и не сжимается */
+    display: flex; /* Flexbox для выравнивания */
+    align-items: flex-start; /* Выравнивание по верхнему краю */
+    justify-content: flex-start; /* Выравнивание по левому краю */
+}
+
+/* Заголовок второго фрейма */
+.frame-2-title {
+    font-family: 'Playfair Display', 'Cormorant Garamond', serif; /* Декоративные шрифты с засечками */
+    font-size: 48px; /* Размер шрифта */
+    font-weight: 700; /* Жирное начертание */
+    color: #fff; /* Белый цвет текста */
+    line-height: 1.1; /* Уменьшенный межстрочный интервал */
+    margin: 0; /* Без внешних отступов */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Тень для читаемости */
+    letter-spacing: 1px; /* Расстояние между буквами */
+    white-space: nowrap; /* Запрет переноса строки */
+}
+
+/* Первая строка заголовка */
+.frame-2-title-line1 {
+    display: block; /* Блочный элемент для принудительного переноса */
+    white-space: normal; /* Разрешаем перенос внутри строки */
+}
+
+/* Вторая строка заголовка */
+.frame-2-title-line2 {
+    display: block; /* Блочный элемент для принудительного переноса */
+    white-space: normal; /* Разрешаем перенос внутри строки */
+}
+
+/* Контейнер для фото кошки с кондиционером (правая часть) */
+.frame-2-cat {
+    flex: 0 0 auto; /* Не растягивается и не сжимается, фиксированный размер */
+    display: flex; /* Flexbox для выравнивания изображения */
+    align-items: flex-start; /* Выравнивание по верхнему краю */
+    justify-content: flex-end; /* Выравнивание по правому краю */
+}
+
+/* Фото кошки во втором фрейме */
+.frame-2-cat-image {
+    max-width: 200px; /* Максимальная ширина изображения */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    object-fit: contain; /* Изображение помещается полностью без обрезки */
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)); /* Тень для объема */
+}
+
+/* ============================================ */
+/* СРЕДНЯЯ ЧАСТЬ - Три фото под заголовком и текст справа */
+/* ============================================ */
+
+/* Контейнер средней части второго фрейма */
+.frame-2-middle {
+    position: relative; /* Относительное позиционирование для z-index */
+    z-index: 10; /* Слой выше фона */
+    padding: 40px 60px; /* Внутренние отступы: сверху и снизу 40px, по бокам 60px */
+    display: flex; /* Flexbox для растягивания колонок */
+    flex-direction: column; /* Вертикальное расположение */
+}
+
+.frame-2-middle .container-fluid {
+    display: flex; /* Flexbox для растягивания */
+    flex: 1; /* Растягивается на всю доступную высоту */
+    flex-direction: column; /* Вертикальное расположение */
+}
+
+.frame-2-middle .row {
+    display: flex; /* Flexbox для растягивания колонок */
+    flex: 1; /* Растягивается на всю доступную высоту */
+    align-items: stretch; /* Растягивание колонок по высоте */
+}
+
+/* Левая часть с тремя фото (70% ширины) */
+.frame-2-images-left {
+    position: relative; /* Относительное позиционирование */
+    z-index: 15; /* Слой выше других элементов */
+    padding-left: 50px; /* Отступ слева */
+    padding-right: 30px; /* Отступ справа */
+}
+
+/* Ряд с фото (равномерное распределение) */
+.frame-2-images-row {
+    display: flex; /* Flexbox для горизонтального расположения фото */
+    flex-direction: row; /* Элементы в ряд */
+    justify-content: space-between; /* Равномерное распределение между фото */
+    gap: 20px; /* Расстояние между фото */
+    width: 100%; /* Полная ширина контейнера */
+}
+
+/* Отдельный элемент фото */
+.frame-2-image-item {
+    flex: 1; /* Равномерное распределение пространства */
+    position: relative; /* Относительное позиционирование */
+    overflow: hidden; /* Скрываем переполнение изображения */
+    border-radius: 12px; /* Скругление углов */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Тень для объема */
+    background: rgba(255, 255, 255, 0.05); /* Полупрозрачный белый фон */
+    backdrop-filter: blur(10px); /* Размытие фона для эффекта стекла */
+    border-radius: 20px; /* Скругление углов */
+}
+
+/* Изображение во втором фрейме */
+.frame-2-image {
+    width: 100%; /* Полная ширина контейнера */
+    height: 100%; /* Полная высота контейнера */
+    object-fit: fill; /* Растягивание изображения без сохранения пропорций, заполнение всего контейнера */
+    object-position: center; /* Центрирование изображения в контейнере */
+    display: block; /* Блочный элемент для устранения нижнего отступа */
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)); /* Тень для объема изображения */
+    aspect-ratio: 4 / 3; /* Соотношение сторон для сохранения пропорций */
+}
+
+/* Правая часть с текстом (30% ширины) */
+.frame-2-text-right {
+    position: relative; /* Относительное позиционирование */
+    z-index: 15; /* Слой выше других элементов */
+    padding-left: 30px; /* Отступ слева */
+    padding-right: 50px; /* Отступ справа */
+    display: flex; /* Flexbox для выравнивания текста */
+    align-items: center; /* Вертикальное выравнивание по центру */
+    justify-content: flex-start; /* Выравнивание по левому краю */
+    height: 100%; /* Высота 100% для выравнивания с левой частью */
+}
+
+/* Текст во втором фрейме */
+.frame-2-text {
+    font-family: 'Playfair Display', 'Cormorant Garamond', serif; /* Декоративные шрифты с засечками */
+    font-size: 36px; /* Размер шрифта */
+    font-weight: 600; /* Полужирное начертание */
+    color: #fff; /* Белый цвет текста */
+    line-height: 1.1; /* Уменьшенный межстрочный интервал */
+    margin: 0; /* Без внешних отступов */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Тень для читаемости */
+    letter-spacing: 1px; /* Расстояние между буквами */
+    white-space: nowrap; /* Запрет переноса строки */
+}
+
+/* Первая строка текста */
+.frame-2-text-line1 {
+    display: block; /* Блочный элемент для принудительного переноса */
+    white-space: normal; /* Разрешаем перенос внутри строки */
+}
+
+/* Вторая строка текста */
+.frame-2-text-line2 {
+    display: block; /* Блочный элемент для принудительного переноса */
+    white-space: normal; /* Разрешаем перенос внутри строки */
+}
+
+/* ============================================ */
+/* НИЖНЯЯ ЧАСТЬ - Три фото по центру */
+/* ============================================ */
+
+/* Контейнер нижней части второго фрейма */
+.frame-2-bottom {
+    position: relative; /* Относительное позиционирование для z-index */
+    z-index: 10; /* Слой выше фона */
+    padding: 40px 60px 60px; /* Внутренние отступы: сверху 40px, по бокам 60px, снизу 60px */
+}
+
+/* Контейнер для нижних фото */
+.frame-2-images-bottom {
+    position: relative; /* Относительное позиционирование */
+    z-index: 15; /* Слой выше других элементов */
+    display: flex; /* Flexbox для центрирования */
+    justify-content: center; /* Горизонтальное центрирование */
+    align-items: center; /* Вертикальное центрирование */
+}
+
+/* Ряд с нижними фото (равномерное распределение по центру) */
+.frame-2-images-row-bottom {
+    display: flex; /* Flexbox для горизонтального расположения фото */
+    flex-direction: row; /* Элементы в ряд */
+    justify-content: center; /* Центрирование фото */
+    gap: 30px; /* Расстояние между фото */
+    width: 100%; /* Полная ширина контейнера */
+    max-width: 1200px; /* Максимальная ширина для ограничения на больших экранах */
+}
+
+/* Адаптивность для второго фрейма */
+@media (max-width: 1600px) {
+    .frame-2-title {
+        font-size: 42px;
+    }
+
+    .frame-2-text {
+        font-size: 32px;
+    }
+
+    .frame-2-cat-image {
+        max-width: 180px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .frame-2-title {
+        font-size: 38px;
+    }
+
+    .frame-2-text {
+        font-size: 28px;
+    }
+
+    .frame-2-cat-image {
+        max-width: 160px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .frame-2-header {
+        padding: 40px 50px 25px;
+        gap: 20px;
+    }
+
+    .frame-2-title {
+        font-size: 34px;
+    }
+
+    .frame-2-text {
+        font-size: 26px;
+    }
+
+    .frame-2-cat-image {
+        max-width: 140px;
+    }
+
+    .frame-2-middle {
+        padding: 35px 50px;
+    }
+
+    .frame-2-bottom {
+        padding: 35px 50px 50px;
+    }
+}
+
+@media (max-width: 992px) {
+    .frame-2-header {
+        padding: 35px 40px 20px;
+        gap: 15px;
+        flex-direction: column; /* Вертикальное расположение на маленьких экранах */
+    }
+
+    .frame-2-title-section {
+        flex: 0 0 100%; /* Полная ширина на маленьких экранах */
+    }
+
+    .frame-2-title {
+        font-size: 30px;
+    }
+
+    .frame-2-cat {
+        align-self: flex-end; /* Выравнивание по правому краю */
+    }
+
+    .frame-2-cat-image {
+        max-width: 120px;
+    }
+
+    .frame-2-text {
+        font-size: 24px;
+    }
+
+    .frame-2-middle {
+        padding: 30px 40px;
+    }
+
+    .frame-2-images-left {
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .frame-2-text-right {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .frame-2-bottom {
+        padding: 30px 40px 40px;
+    }
+
+    .frame-2-images-row-bottom {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .frame-2-header {
+        padding: 30px 30px 15px;
+    }
+
+    .frame-2-title {
+        font-size: 24px;
+    }
+
+    .frame-2-cat-image {
+        max-width: 100px;
+    }
+
+    .frame-2-text {
+        font-size: 20px;
+    }
+
+    .frame-2-middle {
+        padding: 25px 30px;
+    }
+
+    .frame-2-bottom {
+        padding: 25px 30px 35px;
+    }
+
+    .frame-2-images-row {
+        flex-direction: column; /* Вертикальное расположение на очень маленьких экранах */
+        gap: 15px;
+    }
+
+    .frame-2-images-row-bottom {
+        flex-direction: column; /* Вертикальное расположение на очень маленьких экранах */
+        gap: 15px;
+    }
+
+    .frame-2-image-item {
+        aspect-ratio: 16 / 9; /* Изменяем соотношение сторон для вертикального расположения */
+    }
+}
+
+@media (max-width: 576px) {
+    .frame-2-header {
+        padding: 25px 20px 15px;
+    }
+
+    .frame-2-title {
+        font-size: 20px;
+    }
+
+    .frame-2-cat-image {
+        max-width: 80px;
+    }
+
+    .frame-2-text {
+        font-size: 18px;
+    }
+
+    .frame-2-middle {
+        padding: 20px 20px;
+    }
+
+    .frame-2-bottom {
+        padding: 20px 20px 30px;
+    }
+}
+
+/* ============================================ */
+/* ТРЕТИЙ ФРЕЙМ - Установка как искусство */
+/* ============================================ */
+
+/* Основной контейнер третьего фрейма */
+.frame-3 {
+    position: relative; /* Относительное позиционирование для абсолютно позиционированных дочерних элементов */
+    width: 100%; /* Полная ширина экрана */
+    min-height: 100vh; /* Минимальная высота равна высоте видимой области (viewport height) */
+    overflow: hidden; /* Скрываем переполнение контента за границами */
+    background: #1a1a1a; /* Темный фон на случай, если изображение не загрузится */
+}
+
+/* Контейнер для фонового изображения третьего фрейма */
+.frame-3-bg {
+    position: absolute; /* Абсолютное позиционирование относительно .frame-3 */
+    top: 0; /* Прижато к верху */
+    left: 0; /* Прижато к левому краю */
+    width: 100%; /* Полная ширина родителя */
+    height: 100%; /* Полная высота родителя */
+    z-index: 0; /* Самый нижний слой - фон */
+}
+
+/* ============================================ */
+/* ВЕРХНЯЯ ЧАСТЬ - Три элемента в ряд */
+/* ============================================ */
+
+/* Контейнер верхней части третьего фрейма */
+.frame-3-top {
+    position: relative; /* Относительное позиционирование для z-index */
+    z-index: 10; /* Слой выше фона */
+    padding: 80px 80px 50px; /* Увеличенные отступы для лучшего дыхания */
+}
+
+/* Левая часть верхнего ряда */
+.frame-3-top-left {
+    position: relative; /* Относительное позиционирование */
+    z-index: 15; /* Слой выше других элементов */
+    padding-left: 50px; /* Отступ слева */
+    padding-right: 20px; /* Отступ справа */
+}
+
+/* Секция с фото кошки и текстом */
+.frame-3-cat-section {
+    display: flex; /* Flexbox для вертикального расположения */
+    flex-direction: column; /* Вертикальное расположение */
+    align-items: flex-start; /* Выравнивание по левому краю */
+    gap: 30px; /* Увеличенное расстояние между элементами для лучшего визуального разделения */
+    padding-top: 20px; /* Дополнительный отступ сверху */
+}
+
+/* Фото кошки в третьем фрейме */
+.frame-3-cat-image {
+    max-width: 240px; /* Увеличенная максимальная ширина для лучшей видимости */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    object-fit: contain; /* Изображение помещается полностью без обрезки */
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.5)); /* Улучшенная тень для большего объема */
+}
+
+/* Текст "Установка как искусство" */
+.frame-3-art-text {
+    font-family: 'Playfair Display', 'Cormorant Garamond', serif; /* Декоративные шрифты с засечками */
+    font-size: 32px; /* Увеличенный размер шрифта для лучшей читаемости */
+    font-weight: 700; /* Более жирное начертание для акцента */
+    color: #fff; /* Белый цвет текста - единый для всех фреймов */
+    line-height: 1.4; /* Улучшенный межстрочный интервал */
+    margin: 0; /* Без внешних отступов */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Тень для читаемости */
+    letter-spacing: 1.5px; /* Увеличенное расстояние между буквами для элегантности */
+    max-width: 90%; /* Ограничение ширины для лучшей читаемости */
+}
+
+/* Центральная часть верхнего ряда */
+.frame-3-top-center {
+    position: relative; /* Относительное позиционирование */
+    z-index: 15; /* Слой выше других элементов */
+    padding-left: 30px; /* Увеличенный отступ слева */
+    padding-right: 30px; /* Увеличенный отступ справа */
+    display: flex; /* Flexbox для центрирования */
+    align-items: center; /* Вертикальное центрирование */
+    justify-content: center; /* Горизонтальное центрирование */
+}
+
+/* Правая часть верхнего ряда */
+.frame-3-top-right {
+    position: relative; /* Относительное позиционирование */
+    z-index: 15; /* Слой выше других элементов */
+    padding-left: 20px; /* Отступ слева */
+    padding-right: 50px; /* Отступ справа */
+    display: flex; /* Flexbox для выравнивания */
+    align-items: center; /* Вертикальное выравнивание по центру */
+    justify-content: flex-start; /* Выравнивание по левому краю */
+}
+
+/* Текст "Аккуратно. Точно. Надёжно." */
+.frame-3-quality-text {
+    font-family: 'Playfair Display', 'Cormorant Garamond', serif; /* Декоративные шрифты с засечками */
+    font-size: 42px; /* Увеличенный размер шрифта для большего визуального веса */
+    font-weight: 800; /* Очень жирное начертание для акцента */
+    color: #fff; /* Белый цвет текста */
+    line-height: 1.3; /* Улучшенный межстрочный интервал */
+    margin: 0; /* Без внешних отступов */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Улучшенная тень для читаемости */
+    letter-spacing: 2px; /* Увеличенное расстояние между буквами */
+    padding-top: 20px; /* Отступ сверху для лучшего баланса */
+}
+
+/* Первая строка качества */
+.frame-3-quality-line1 {
+    display: block; /* Блочный элемент для принудительного переноса */
+    color: #fff; /* Белый цвет - единый для всех фреймов */
+    padding-left: 0; /* Без отступа слева для первой строки */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Тень для читаемости */
+    margin-bottom: 8px; /* Отступ снизу для визуального разделения */
+}
+
+/* Вторая строка качества */
+.frame-3-quality-line2 {
+    display: block; /* Блочный элемент для принудительного переноса */
+    color: #fff; /* Белый цвет - единый для всех фреймов */
+    padding-left: 50px; /* Увеличенный отступ слева для эффекта лесенки */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Тень для читаемости */
+    margin-bottom: 8px; /* Отступ снизу для визуального разделения */
+}
+
+/* Третья строка качества */
+.frame-3-quality-line3 {
+    display: block; /* Блочный элемент для принудительного переноса */
+    color: #fff; /* Белый цвет - единый для всех фреймов */
+    padding-left: 100px; /* Увеличенный отступ слева для эффекта лесенки */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Тень для читаемости */
+}
+
+/* ============================================ */
+/* СРЕДНЯЯ ЧАСТЬ - Фото слева и справа */
+/* ============================================ */
+
+/* Контейнер средней части третьего фрейма */
+.frame-3-middle {
+    position: relative; /* Относительное позиционирование для z-index */
+    z-index: 10; /* Слой выше фона */
+    padding: 60px 80px; /* Увеличенные отступы для лучшего дыхания */
+}
+
+/* Верхний ряд средней части */
+.frame-3-middle-top-row {
+    margin-bottom: 30px; /* Отступ снизу перед нижним рядом */
+}
+
+/* Нижний ряд средней части */
+.frame-3-middle-bottom-row {
+    margin-top: 30px; /* Отступ сверху после верхнего ряда */
+}
+
+/* Левая часть средней секции */
+.frame-3-middle-left {
+    position: relative; /* Относительное позиционирование */
+    z-index: 15; /* Слой выше других элементов */
+    padding-left: 50px; /* Отступ слева */
+    padding-right: 20px; /* Отступ справа */
+    display: flex; /* Flexbox для выравнивания */
+    align-items: flex-start; /* Выравнивание по верхнему краю */
+    justify-content: flex-start; /* Выравнивание по левому краю */
+}
+
+/* Правая часть средней секции */
+.frame-3-middle-right {
+    position: relative; /* Относительное позиционирование */
+    z-index: 15; /* Слой выше других элементов */
+    padding-left: 20px; /* Отступ слева */
+    padding-right: 50px; /* Отступ справа */
+    display: flex; /* Flexbox для выравнивания */
+    align-items: flex-start; /* Выравнивание по верхнему краю */
+    justify-content: flex-end; /* Выравнивание по правому краю */
+}
+
+/* Контейнер для ряда из трех фото */
+.frame-3-images-row-container {
+    position: relative; /* Относительное позиционирование */
+    z-index: 15; /* Слой выше других элементов */
+    padding-left: 50px; /* Отступ слева */
+    padding-right: 50px; /* Отступ справа */
+}
+
+/* Ряд с тремя фото (равномерное распределение) */
+.frame-3-images-row {
+    display: flex; /* Flexbox для горизонтального расположения */
+    flex-direction: row; /* Элементы в ряд */
+    justify-content: space-between; /* Равномерное распределение между фото */
+    gap: 25px; /* Расстояние между фото */
+    width: 100%; /* Полная ширина контейнера */
+    align-items: stretch; /* Растягивание элементов по высоте */
+}
+
+/* Отдельный элемент фото в третьем фрейме */
+.frame-3-image-item {
+    position: relative; /* Относительное позиционирование */
+    overflow: hidden; /* Скрываем переполнение изображения */
+    border-radius: 24px; /* Увеличенное скругление углов для более современного вида */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 4px 10px rgba(0, 0, 0, 0.2); /* Многослойная тень для большей глубины */
+    background: rgba(255, 255, 255, 0.08); /* Немного более яркий фон для лучшей видимости */
+    backdrop-filter: blur(12px); /* Увеличенное размытие для более выраженного эффекта стекла */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Тонкая полупрозрачная рамка для определения границ */
+    aspect-ratio: 4 / 3; /* Соотношение сторон */
+}
+
+/* Уменьшенное фото слева (монтаж) */
+.frame-3-image-small-left {
+    width: 75%; /* Уменьшение на 25% */
+    margin-right: auto; /* Распределение по левой стороне */
+}
+
+/* Уменьшенное фото справа (монтаж1) */
+.frame-3-image-small-right {
+    width: 75%; /* Уменьшение на 25% */
+    margin-left: auto; /* Распределение по правой стороне */
+}
+
+/* Изображение в третьем фрейме */
+.frame-3-image {
+    width: 100%; /* Полная ширина контейнера */
+    height: 100%; /* Полная высота контейнера */
+    object-fit: fill; /* Растягивание изображения без сохранения пропорций */
+    object-position: center; /* Центрирование изображения в контейнере */
+    display: block; /* Блочный элемент для устранения нижнего отступа */
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)); /* Тень для объема изображения */
+}
+
+/* ============================================ */
+/* НИЖНЯЯ ЧАСТЬ - Текст по центру */
+/* ============================================ */
+
+/* Контейнер нижней части третьего фрейма */
+.frame-3-bottom {
+    position: relative; /* Относительное позиционирование для z-index */
+    z-index: 10; /* Слой выше фона */
+    padding: 70px 80px 80px; /* Увеличенные отступы для лучшего дыхания */
+}
+
+/* Контент нижней части */
+.frame-3-bottom-content {
+    position: relative; /* Относительное позиционирование */
+    z-index: 15; /* Слой выше других элементов */
+    display: flex; /* Flexbox для центрирования */
+    justify-content: center; /* Горизонтальное центрирование */
+    align-items: center; /* Вертикальное центрирование */
+    text-align: center; /* Центрирование текста */
+    padding: 40px 0; /* Вертикальные отступы для выделения секции */
+}
+
+/* Текст нижней части */
+.frame-3-bottom-text {
+    font-family: 'Playfair Display', 'Cormorant Garamond', serif; /* Декоративные шрифты с засечками */
+    font-size: 38px; /* Увеличенный размер шрифта для акцента */
+    font-weight: 700; /* Более жирное начертание */
+    color: #fff; /* Белый цвет текста */
+    line-height: 1.5; /* Улучшенный межстрочный интервал */
+    margin: 0; /* Без внешних отступов */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Улучшенная тень для читаемости */
+    letter-spacing: 2px; /* Увеличенное расстояние между буквами */
+    max-width: 900px; /* Ограничение ширины для лучшей читаемости */
+}
+
+/* Первая строка нижнего текста */
+.frame-3-bottom-line1 {
+    display: block; /* Блочный элемент для принудительного переноса */
+    color: #fff; /* Белый цвет - единый для всех фреймов */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Тень для читаемости */
+    margin-bottom: 15px; /* Отступ снизу для визуального разделения */
+    font-size: 1em; /* Размер относительно родителя */
+}
+
+/* Вторая строка нижнего текста */
+.frame-3-bottom-line2 {
+    display: block; /* Блочный элемент для принудительного переноса */
+    color: #fff; /* Белый цвет - единый для всех фреймов */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Тень для читаемости */
+    font-size: 1.1em; /* Немного увеличенный размер для акцента на телефоне */
+    font-weight: 800; /* Очень жирное начертание для телефона */
+}
+
+/* Адаптивность для третьего фрейма */
+@media (max-width: 1600px) {
+    .frame-3-art-text {
+        font-size: 28px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-quality-text {
+        font-size: 38px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-quality-line2 {
+        padding-left: 45px; /* Пропорциональное уменьшение отступа */
+    }
+
+    .frame-3-quality-line3 {
+        padding-left: 90px; /* Пропорциональное уменьшение отступа */
+    }
+
+    .frame-3-bottom-text {
+        font-size: 34px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-cat-image {
+        max-width: 220px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-top {
+        padding: 70px 70px 45px; /* Пропорциональное уменьшение отступов */
+    }
+
+    .frame-3-middle {
+        padding: 55px 70px; /* Пропорциональное уменьшение отступов */
+    }
+
+    .frame-3-bottom {
+        padding: 65px 70px 75px; /* Пропорциональное уменьшение отступов */
+    }
+}
+
+@media (max-width: 1400px) {
+    .frame-3-art-text {
+        font-size: 26px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-quality-text {
+        font-size: 34px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-quality-line2 {
+        padding-left: 40px; /* Пропорциональное уменьшение отступа */
+    }
+
+    .frame-3-quality-line3 {
+        padding-left: 80px; /* Пропорциональное уменьшение отступа */
+    }
+
+    .frame-3-bottom-text {
+        font-size: 30px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-cat-image {
+        max-width: 200px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-top {
+        padding: 60px 60px 40px; /* Пропорциональное уменьшение отступов */
+    }
+
+    .frame-3-middle {
+        padding: 50px 60px; /* Пропорциональное уменьшение отступов */
+    }
+
+    .frame-3-bottom {
+        padding: 60px 60px 70px; /* Пропорциональное уменьшение отступов */
+    }
+}
+
+@media (max-width: 1200px) {
+    .frame-3-top {
+        padding: 50px 50px 35px; /* Пропорциональное уменьшение отступов */
+    }
+
+    .frame-3-art-text {
+        font-size: 24px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-quality-text {
+        font-size: 30px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-quality-line2 {
+        padding-left: 35px; /* Пропорциональное уменьшение отступа */
+    }
+
+    .frame-3-quality-line3 {
+        padding-left: 70px; /* Пропорциональное уменьшение отступа */
+    }
+
+    .frame-3-bottom-text {
+        font-size: 28px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-cat-image {
+        max-width: 180px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-middle {
+        padding: 45px 50px; /* Пропорциональное уменьшение отступов */
+    }
+
+    .frame-3-bottom {
+        padding: 55px 50px 60px; /* Пропорциональное уменьшение отступов */
+    }
+}
+
+@media (max-width: 992px) {
+    .frame-3-top {
+        padding: 40px 40px 30px; /* Пропорциональное уменьшение отступов */
+    }
+
+    .frame-3-top-left,
+    .frame-3-top-center,
+    .frame-3-top-right {
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 25px; /* Увеличенный отступ для лучшего разделения */
+    }
+
+    .frame-3-art-text {
+        font-size: 22px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-quality-text {
+        font-size: 26px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-quality-line2 {
+        padding-left: 30px; /* Пропорциональное уменьшение отступа */
+    }
+
+    .frame-3-quality-line3 {
+        padding-left: 60px; /* Пропорциональное уменьшение отступа */
+    }
+
+    .frame-3-bottom-text {
+        font-size: 24px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-cat-image {
+        max-width: 160px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-middle {
+        padding: 35px 40px; /* Пропорциональное уменьшение отступов */
+    }
+
+    .frame-3-middle-left,
+    .frame-3-middle-right {
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 20px; /* Отступ для лучшего разделения */
+    }
+
+    .frame-3-images-row-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .frame-3-images-row {
+        flex-direction: column; /* Вертикальное расположение на маленьких экранах */
+        gap: 20px;
+    }
+
+    .frame-3-bottom {
+        padding: 40px 40px 50px; /* Пропорциональное уменьшение отступов */
+    }
+
+    .frame-3-bottom-content {
+        padding: 30px 0; /* Уменьшенные вертикальные отступы */
+    }
+}
+
+@media (max-width: 768px) {
+    .frame-3-top {
+        padding: 35px 30px 25px; /* Пропорциональное уменьшение отступов */
+    }
+
+    .frame-3-art-text {
+        font-size: 20px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-quality-text {
+        font-size: 24px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-quality-line2 {
+        padding-left: 25px; /* Пропорциональное уменьшение отступа */
+    }
+
+    .frame-3-quality-line3 {
+        padding-left: 50px; /* Пропорциональное уменьшение отступа */
+    }
+
+    .frame-3-bottom-text {
+        font-size: 22px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-cat-image {
+        max-width: 140px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-middle {
+        padding: 30px 30px; /* Пропорциональное уменьшение отступов */
+    }
+
+    .frame-3-bottom {
+        padding: 35px 30px 45px; /* Пропорциональное уменьшение отступов */
+    }
+
+    .frame-3-bottom-content {
+        padding: 25px 0; /* Уменьшенные вертикальные отступы */
+    }
+}
+
+@media (max-width: 576px) {
+    .frame-3-top {
+        padding: 30px 20px 20px; /* Пропорциональное уменьшение отступов */
+    }
+
+    .frame-3-art-text {
+        font-size: 18px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-quality-text {
+        font-size: 20px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-quality-line2 {
+        padding-left: 20px; /* Пропорциональное уменьшение отступа */
+    }
+
+    .frame-3-quality-line3 {
+        padding-left: 40px; /* Пропорциональное уменьшение отступа */
+    }
+
+    .frame-3-bottom-text {
+        font-size: 18px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-cat-image {
+        max-width: 120px; /* Пропорциональное уменьшение */
+    }
+
+    .frame-3-middle {
+        padding: 25px 20px; /* Пропорциональное уменьшение отступов */
+    }
+
+    .frame-3-bottom {
+        padding: 30px 20px 40px; /* Пропорциональное уменьшение отступов */
+    }
+
+    .frame-3-bottom-content {
+        padding: 20px 0; /* Уменьшенные вертикальные отступы */
+    }
+}
+
+/* ============================================ */
+/* ЧЕТВЕРТЫЙ ФРЕЙМ - Финальная секция */
+/* ============================================ */
+
+/* Основной контейнер четвертого фрейма */
+.frame-4 {
+    position: relative; /* Относительное позиционирование для абсолютно позиционированных дочерних элементов */
+    width: 100%; /* Полная ширина экрана */
+    min-height: 100vh; /* Минимальная высота равна высоте видимой области (viewport height) */
+    overflow: hidden; /* Скрываем переполнение контента за границами */
+    background: #1a1a1a; /* Темный фон на случай, если изображение не загрузится */
+}
+
+/* Контейнер для фонового изображения четвертого фрейма */
+.frame-4-bg {
+    position: absolute; /* Абсолютное позиционирование относительно .frame-4 */
+    top: 0; /* Прижато к верху */
+    left: 0; /* Прижато к левому краю */
+    width: 100%; /* Полная ширина родителя */
+    height: 100%; /* Полная высота родителя */
+    z-index: 0; /* Самый нижний слой - фон */
+}
+
+/* Контейнер контента четвертого фрейма */
+.frame-4-content {
+    position: relative; /* Относительное позиционирование для z-index */
+    z-index: 10; /* Слой выше фона */
+    padding: 80px 80px; /* Отступы для контента */
+    min-height: 100vh; /* Минимальная высота для заполнения экрана */
+    display: flex; /* Flexbox для распределения элементов */
+    flex-direction: column; /* Вертикальное расположение */
+    justify-content: space-between; /* Распределение по вертикали */
+}
+
+/* Верхняя левая часть: Заголовок */
+.frame-4-top-left {
+    position: relative; /* Относительное позиционирование */
+    z-index: 15; /* Слой выше других элементов */
+    padding-left: 50px; /* Отступ слева */
+    padding-top: 0; /* Без отступа сверху */
+    align-self: flex-start; /* Выравнивание по левому краю */
+}
+
+/* Заголовок четвертого фрейма */
+.frame-4-title {
+    font-family: 'Playfair Display', 'Cormorant Garamond', serif; /* Декоративные шрифты с засечками */
+    font-size: 42px; /* Размер шрифта */
+    font-weight: 700; /* Жирное начертание */
+    color: #fff; /* Белый цвет текста - единый для всех фреймов */
+    line-height: 1.3; /* Межстрочный интервал */
+    margin: 0; /* Без внешних отступов */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Тень для читаемости */
+    letter-spacing: 2px; /* Расстояние между буквами */
+}
+
+/* Центральная часть: Список услуг */
+.frame-4-services {
+    position: relative; /* Относительное позиционирование */
+    z-index: 15; /* Слой выше других элементов */
+    flex: 1; /* Растягивается на доступное пространство */
+    display: flex; /* Flexbox для центрирования */
+    align-items: center; /* Вертикальное центрирование */
+    justify-content: center; /* Горизонтальное центрирование */
+    padding: 40px 50px; /* Отступы для списка */
+}
+
+/* Список услуг */
+.frame-4-services-list {
+    list-style: none; /* Убираем стандартные маркеры списка */
+    padding: 0; /* Без внутренних отступов */
+    margin: 0; /* Без внешних отступов */
+    max-width: 1000px; /* Максимальная ширина для читаемости */
+    width: 100%; /* Полная ширина контейнера */
+}
+
+/* Отдельный элемент услуги */
+.frame-4-service-item {
+    display: flex; /* Flexbox для горизонтального расположения галочки и текста */
+    align-items: flex-start; /* Выравнивание по верхнему краю (для многострочного текста) */
+    gap: 20px; /* Расстояние между галочкой и текстом */
+    margin-bottom: 25px; /* Отступ снизу между элементами списка */
+    padding: 0; /* Без внутренних отступов - убраны видимые контейнеры */
+    background: none; /* Без фона - убраны видимые контейнеры */
+    backdrop-filter: none; /* Без размытия фона - убраны видимые контейнеры */
+    border-radius: 0; /* Без скругления углов - убраны видимые контейнеры */
+    /* border: none; */ /* Без рамки - убраны видимые контейнеры */
+}
+
+/* Последний элемент списка без нижнего отступа */
+.frame-4-service-item:last-child {
+    margin-bottom: 0; /* Убираем нижний отступ у последнего элемента */
+}
+
+/* Зеленая галочка в кружке */
+.frame-4-check-icon {
+    display: inline-flex; /* Flexbox для центрирования символа галочки */
+    align-items: center; /* Вертикальное выравнивание по центру */
+    justify-content: center; /* Горизонтальное выравнивание по центру */
+    width: 40px; /* Ширина кружка */
+    height: 40px; /* Высота кружка (квадрат) */
+    background: linear-gradient(135deg, #4CAF50, #388E3C); /* Зеленый градиентный фон */
+    color: #fff; /* Белый цвет символа галочки */
+    border-radius: 50%; /* Круглая форма */
+    font-size: 24px; /* Размер символа галочки */
+    font-weight: 700; /* Жирное начертание для галочки */
+    flex-shrink: 0; /* Запрет сжатия при нехватке места */
+    margin-top: 2px; /* Небольшой отступ сверху для визуального выравнивания */
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.4); /* Тень для объема */
+}
+
+/* Текст услуги */
+.frame-4-service-text {
+    font-family: 'Playfair Display', 'Cormorant Garamond', serif; /* Декоративные шрифты с засечками */
+    font-size: 24px; /* Размер шрифта */
+    font-weight: 500; /* Среднее начертание */
+    color: #fff; /* Белый цвет текста - единый для всех фреймов */
+    line-height: 1.6; /* Межстрочный интервал для читаемости */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Тень для читаемости */
+    letter-spacing: 0.5px; /* Расстояние между буквами */
+    flex: 1; /* Растягивается на доступное пространство */
+}
+
+/* Нижняя правая часть: Текст */
+.frame-4-bottom-right {
+    position: relative; /* Относительное позиционирование */
+    z-index: 15; /* Слой выше других элементов */
+    padding-right: 50px; /* Отступ справа */
+    padding-bottom: 0; /* Без отступа снизу */
+    align-self: flex-end; /* Выравнивание по правому краю */
+    margin-top: auto; /* Автоматический отступ сверху для размещения внизу */
+}
+
+/* Текст нижней части */
+.frame-4-bottom-text {
+    font-family: 'Playfair Display', 'Cormorant Garamond', serif; /* Декоративные шрифты с засечками */
+    font-size: 36px; /* Размер шрифта */
+    font-weight: 700; /* Жирное начертание */
+    color: #fff; /* Белый цвет текста - единый для всех фреймов */
+    line-height: 1.4; /* Межстрочный интервал */
+    margin: 0; /* Без внешних отступов */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Тень для читаемости */
+    letter-spacing: 2px; /* Расстояние между буквами */
+    text-align: right; /* Выравнивание по правому краю */
+}
+
+/* Адаптивность для четвертого фрейма */
+@media (max-width: 1600px) {
+    .frame-4-content {
+        padding: 70px 70px;
+    }
+
+    .frame-4-text {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .frame-4-content {
+        padding: 60px 60px;
+    }
+
+    .frame-4-text {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .frame-4-content {
+        padding: 50px 50px;
+    }
+
+    .frame-4-text {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 992px) {
+    .frame-4-content {
+        padding: 40px 40px;
+    }
+
+    .frame-4-text {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .frame-4-content {
+        padding: 35px 30px;
+    }
+
+    .frame-4-text {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .frame-4-content {
+        padding: 30px 20px;
+    }
+
+    .frame-4-text {
+        font-size: 18px;
+    }
+}
+
+/* ============================================ */
+/* ПЯТЫЙ ФРЕЙМ - Равномерное распределение */
+/* ============================================ */
+
+/* Основной контейнер пятого фрейма */
+.frame-5 {
+    position: relative; /* Относительное позиционирование для абсолютно позиционированных дочерних элементов */
+    width: 100%; /* Полная ширина экрана */
+    min-height: 100vh; /* Минимальная высота равна высоте видимой области (viewport height) */
+    overflow: hidden; /* Скрываем переполнение контента за границами */
+    background: #1a1a1a; /* Темный фон на случай, если изображение не загрузится */
+}
+
+/* Контейнер для фонового изображения пятого фрейма */
+.frame-5-bg {
+    position: absolute; /* Абсолютное позиционирование относительно .frame-5 */
+    top: 0; /* Прижато к верху */
+    left: 0; /* Прижато к левому краю */
+    width: 100%; /* Полная ширина родителя */
+    height: 100%; /* Полная высота родителя */
+    z-index: 0; /* Самый нижний слой - фон */
+}
+
+/* Контейнер контента пятого фрейма */
+.frame-5-content {
+    position: relative; /* Относительное позиционирование для z-index */
+    z-index: 10; /* Слой выше фона */
+    padding: 80px 80px; /* Отступы для контента */
+    min-height: 100vh; /* Минимальная высота для заполнения экрана */
+    display: flex; /* Flexbox для центрирования */
+    align-items: center; /* Вертикальное центрирование */
+    justify-content: center; /* Горизонтальное центрирование */
+}
+
+/* Обертка для текста */
+.frame-5-text-wrapper {
+    position: relative; /* Относительное позиционирование */
+    z-index: 15; /* Слой выше других элементов */
+    display: flex; /* Flexbox для распределения элементов */
+    flex-direction: column; /* Вертикальное расположение */
+    justify-content: space-between; /* Равномерное распределение по вертикали */
+    align-items: center; /* Горизонтальное центрирование */
+    width: 100%; /* Полная ширина */
+    max-width: 1200px; /* Максимальная ширина для читаемости */
+    min-height: calc(100vh - 160px); /* Минимальная высота минус отступы */
+    padding: 40px 0; /* Вертикальные отступы */
+}
+
+/* Заголовок пятого фрейма */
+.frame-5-title {
+    font-family: 'Playfair Display', 'Cormorant Garamond', serif; /* Декоративные шрифты с засечками */
+    font-size: 42px; /* Размер шрифта */
+    font-weight: 700; /* Жирное начертание */
+    color: #fff; /* Белый цвет текста - единый для всех фреймов */
+    line-height: 1.3; /* Межстрочный интервал */
+    margin: 0 0 40px 0; /* Отступ снизу */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Тень для читаемости */
+    letter-spacing: 2px; /* Расстояние между буквами */
+    text-align: center; /* Центрирование заголовка */
+    width: 100%; /* Полная ширина */
+}
+
+/* Список услуг пятого фрейма */
+.frame-5-services-list {
+    list-style: none; /* Убираем стандартные маркеры списка */
+    padding: 0; /* Без внутренних отступов */
+    margin: 0; /* Без внешних отступов */
+    width: 100%; /* Полная ширина контейнера */
+    flex: 1; /* Растягивается на доступное пространство */
+    display: flex; /* Flexbox для распределения */
+    flex-direction: column; /* Вертикальное расположение */
+    justify-content: space-around; /* Равномерное распределение по вертикали */
+    align-items: center; /* Горизонтальное центрирование */
+}
+
+/* Отдельный элемент услуги */
+.frame-5-service-item {
+    display: flex; /* Flexbox для горизонтального расположения галочки и текста */
+    align-items: flex-start; /* Выравнивание по верхнему краю (для многострочного текста) */
+    gap: 20px; /* Расстояние между галочкой и текстом */
+    padding: 0; /* Без внутренних отступов - убраны видимые контейнеры */
+    background: none; /* Без фона - убраны видимые контейнеры */
+    backdrop-filter: none; /* Без размытия фона - убраны видимые контейнеры */
+    border-radius: 0; /* Без скругления углов - убраны видимые контейнеры */
+    width: 100%; /* Полная ширина контейнера */
+    max-width: 900px; /* Максимальная ширина для читаемости */
+    /* border: none; */ /* Без рамки - убраны видимые контейнеры */
+}
+
+/* Иконка огня */
+.frame-5-check-icon {
+    display: inline-flex; /* Flexbox для центрирования символа */
+    align-items: center; /* Вертикальное выравнивание по центру */
+    justify-content: center; /* Горизонтальное выравнивание по центру */
+    width: auto; /* Автоматическая ширина для эмодзи */
+    height: auto; /* Автоматическая высота для эмодзи */
+    background: none; /* Без фона */
+    color: inherit; /* Наследование цвета */
+    border-radius: 0; /* Без скругления */
+    font-size: 28px; /* Размер символа огня */
+    font-weight: normal; /* Обычное начертание */
+    flex-shrink: 0; /* Запрет сжатия при нехватке места */
+    margin-top: 2px; /* Небольшой отступ сверху для визуального выравнивания */
+    box-shadow: none; /* Без тени */
+    margin-right: 10px; /* Отступ справа от иконки */
+}
+
+/* Текст услуги */
+.frame-5-service-text {
+    font-family: 'Playfair Display', 'Cormorant Garamond', serif; /* Декоративные шрифты с засечками */
+    font-size: 24px; /* Размер шрифта */
+    font-weight: 500; /* Среднее начертание */
+    color: #fff; /* Белый цвет текста - единый для всех фреймов */
+    line-height: 1.6; /* Межстрочный интервал для читаемости */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Тень для читаемости */
+    letter-spacing: 0.5px; /* Расстояние между буквами */
+    flex: 1; /* Растягивается на доступное пространство */
+}
+
+/* Текст нижней части */
+.frame-5-bottom-text {
+    font-family: 'Playfair Display', 'Cormorant Garamond', serif; /* Декоративные шрифты с засечками */
+    font-size: 36px; /* Размер шрифта */
+    font-weight: 700; /* Жирное начертание */
+    color: #fff; /* Белый цвет текста - единый для всех фреймов */
+    line-height: 1.4; /* Межстрочный интервал */
+    margin: 40px 0 0 0; /* Отступ сверху */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Тень для читаемости */
+    letter-spacing: 2px; /* Расстояние между буквами */
+    text-align: center; /* Центрирование текста */
+    width: 100%; /* Полная ширина */
+}
+
+/* Адаптивность для пятого фрейма */
+@media (max-width: 1600px) {
+    .frame-5-content {
+        padding: 70px 70px;
+    }
+
+    .frame-5-title {
+        font-size: 38px;
+    }
+
+    .frame-5-service-text {
+        font-size: 22px;
+    }
+
+    .frame-5-bottom-text {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .frame-5-content {
+        padding: 60px 60px;
+    }
+
+    .frame-5-title {
+        font-size: 34px;
+    }
+
+    .frame-5-service-text {
+        font-size: 20px;
+    }
+
+    .frame-5-bottom-text {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .frame-5-content {
+        padding: 50px 50px;
+    }
+
+    .frame-5-title {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    .frame-5-service-text {
+        font-size: 18px;
+    }
+
+    .frame-5-bottom-text {
+        font-size: 26px;
+    }
+
+    .frame-5-service-item {
+        padding: 20px 30px;
+    }
+}
+
+@media (max-width: 992px) {
+    .frame-5-content {
+        padding: 40px 40px;
+    }
+
+    .frame-5-title {
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+
+    .frame-5-service-text {
+        font-size: 17px;
+    }
+
+    .frame-5-bottom-text {
+        font-size: 24px;
+    }
+
+    .frame-5-service-item {
+        padding: 18px 25px;
+        gap: 15px;
+    }
+
+    .frame-5-check-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .frame-5-content {
+        padding: 35px 30px;
+    }
+
+    .frame-5-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .frame-5-service-text {
+        font-size: 16px;
+    }
+
+    .frame-5-bottom-text {
+        font-size: 20px;
+    }
+
+    .frame-5-service-item {
+        padding: 15px 20px;
+        gap: 12px;
+    }
+
+    .frame-5-check-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 576px) {
+    .frame-5-content {
+        padding: 30px 20px;
+    }
+
+    .frame-5-title {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .frame-5-service-text {
+        font-size: 14px;
+    }
+
+    .frame-5-bottom-text {
+        font-size: 18px;
+    }
+
+    .frame-5-service-item {
+        padding: 12px 15px;
+        gap: 10px;
+    }
+
+    .frame-5-check-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+    }
+}
