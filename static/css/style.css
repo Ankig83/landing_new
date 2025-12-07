@@ -1847,7 +1847,7 @@ body {
 }
 
 /* ============================================ */
-/* ЧЕТВЕРТЫЙ ФРЕЙМ - Финальная секция */
+/* ЧЕТВЕРТЫЙ ФРЕЙМ - Объединенная секция */
 /* ============================================ */
 
 /* Основной контейнер четвертого фрейма */
@@ -1875,18 +1875,20 @@ body {
     z-index: 10; /* Слой выше фона */
     padding: 80px 80px; /* Отступы для контента */
     min-height: 100vh; /* Минимальная высота для заполнения экрана */
-    display: flex; /* Flexbox для распределения элементов */
-    flex-direction: column; /* Вертикальное расположение */
-    justify-content: space-between; /* Распределение по вертикали */
 }
 
-/* Верхняя левая часть: Заголовок */
-.frame-4-top-left {
+/* Левая колонка */
+.frame-4-left-column {
     position: relative; /* Относительное позиционирование */
     z-index: 15; /* Слой выше других элементов */
-    padding-left: 50px; /* Отступ слева */
-    padding-top: 0; /* Без отступа сверху */
-    align-self: flex-start; /* Выравнивание по левому краю */
+    padding-right: 40px; /* Отступ справа между колонками */
+}
+
+/* Правая колонка */
+.frame-4-right-column {
+    position: relative; /* Относительное позиционирование */
+    z-index: 15; /* Слой выше других элементов */
+    padding-left: 40px; /* Отступ слева между колонками */
 }
 
 /* Заголовок четвертого фрейма */
@@ -1896,20 +1898,9 @@ body {
     font-weight: 700; /* Жирное начертание */
     color: #fff; /* Белый цвет текста - единый для всех фреймов */
     line-height: 1.3; /* Межстрочный интервал */
-    margin: 0; /* Без внешних отступов */
+    margin: 0 0 40px 0; /* Отступ снизу */
     text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Тень для читаемости */
     letter-spacing: 2px; /* Расстояние между буквами */
-}
-
-/* Центральная часть: Список услуг */
-.frame-4-services {
-    position: relative; /* Относительное позиционирование */
-    z-index: 15; /* Слой выше других элементов */
-    flex: 1; /* Растягивается на доступное пространство */
-    display: flex; /* Flexbox для центрирования */
-    align-items: center; /* Вертикальное центрирование */
-    justify-content: center; /* Горизонтальное центрирование */
-    padding: 40px 50px; /* Отступы для списка */
 }
 
 /* Список услуг */
@@ -1917,7 +1908,6 @@ body {
     list-style: none; /* Убираем стандартные маркеры списка */
     padding: 0; /* Без внутренних отступов */
     margin: 0; /* Без внешних отступов */
-    max-width: 1000px; /* Максимальная ширина для читаемости */
     width: 100%; /* Полная ширина контейнера */
 }
 
@@ -1931,7 +1921,6 @@ body {
     background: none; /* Без фона - убраны видимые контейнеры */
     backdrop-filter: none; /* Без размытия фона - убраны видимые контейнеры */
     border-radius: 0; /* Без скругления углов - убраны видимые контейнеры */
-    /* border: none; */ /* Без рамки - убраны видимые контейнеры */
 }
 
 /* Последний элемент списка без нижнего отступа */
@@ -1956,6 +1945,16 @@ body {
     box-shadow: 0 4px 10px rgba(76, 175, 80, 0.4); /* Тень для объема */
 }
 
+/* Иконка огня (для правой колонки) */
+.frame-4-fire-icon {
+    background: none; /* Без фона */
+    width: auto; /* Автоматическая ширина */
+    height: auto; /* Автоматическая высота */
+    border-radius: 0; /* Без скругления */
+    font-size: 28px; /* Размер символа огня */
+    box-shadow: none; /* Без тени */
+}
+
 /* Текст услуги */
 .frame-4-service-text {
     font-family: 'Playfair Display', 'Cormorant Garamond', serif; /* Декоративные шрифты с засечками */
@@ -1968,37 +1967,18 @@ body {
     flex: 1; /* Растягивается на доступное пространство */
 }
 
-/* Нижняя правая часть: Текст */
-.frame-4-bottom-right {
-    position: relative; /* Относительное позиционирование */
-    z-index: 15; /* Слой выше других элементов */
-    padding-right: 50px; /* Отступ справа */
-    padding-bottom: 0; /* Без отступа снизу */
-    align-self: flex-end; /* Выравнивание по правому краю */
-    margin-top: auto; /* Автоматический отступ сверху для размещения внизу */
-}
-
-/* Текст нижней части */
-.frame-4-bottom-text {
-    font-family: 'Playfair Display', 'Cormorant Garamond', serif; /* Декоративные шрифты с засечками */
-    font-size: 36px; /* Размер шрифта */
-    font-weight: 700; /* Жирное начертание */
-    color: #fff; /* Белый цвет текста - единый для всех фреймов */
-    line-height: 1.4; /* Межстрочный интервал */
-    margin: 0; /* Без внешних отступов */
-    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Тень для читаемости */
-    letter-spacing: 2px; /* Расстояние между буквами */
-    text-align: right; /* Выравнивание по правому краю */
-}
-
 /* Адаптивность для четвертого фрейма */
 @media (max-width: 1600px) {
     .frame-4-content {
         padding: 70px 70px;
     }
 
-    .frame-4-text {
-        font-size: 32px;
+    .frame-4-title {
+        font-size: 38px;
+    }
+
+    .frame-4-service-text {
+        font-size: 22px;
     }
 }
 
@@ -2007,8 +1987,12 @@ body {
         padding: 60px 60px;
     }
 
-    .frame-4-text {
-        font-size: 28px;
+    .frame-4-title {
+        font-size: 34px;
+    }
+
+    .frame-4-service-text {
+        font-size: 20px;
     }
 }
 
@@ -2017,8 +2001,13 @@ body {
         padding: 50px 50px;
     }
 
-    .frame-4-text {
-        font-size: 26px;
+    .frame-4-title {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    .frame-4-service-text {
+        font-size: 18px;
     }
 }
 
@@ -2027,8 +2016,22 @@ body {
         padding: 40px 40px;
     }
 
-    .frame-4-text {
-        font-size: 24px;
+    .frame-4-left-column {
+        padding-right: 0;
+        margin-bottom: 50px;
+    }
+
+    .frame-4-right-column {
+        padding-left: 0;
+    }
+
+    .frame-4-title {
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+
+    .frame-4-service-text {
+        font-size: 17px;
     }
 }
 
@@ -2037,8 +2040,23 @@ body {
         padding: 35px 30px;
     }
 
-    .frame-4-text {
+    .frame-4-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .frame-4-service-text {
+        font-size: 16px;
+    }
+
+    .frame-4-check-icon {
+        width: 36px;
+        height: 36px;
         font-size: 20px;
+    }
+
+    .frame-4-fire-icon {
+        font-size: 24px;
     }
 }
 
@@ -2047,27 +2065,42 @@ body {
         padding: 30px 20px;
     }
 
-    .frame-4-text {
+    .frame-4-title {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .frame-4-service-text {
+        font-size: 14px;
+    }
+
+    .frame-4-check-icon {
+        width: 32px;
+        height: 32px;
         font-size: 18px;
+    }
+
+    .frame-4-fire-icon {
+        font-size: 20px;
     }
 }
 
 /* ============================================ */
-/* ПЯТЫЙ ФРЕЙМ - Равномерное распределение */
+/* FOOTER - Подвал с контактами */
 /* ============================================ */
 
-/* Основной контейнер пятого фрейма */
-.frame-5 {
+/* Основной контейнер футера */
+.site-footer {
     position: relative; /* Относительное позиционирование для абсолютно позиционированных дочерних элементов */
     width: 100%; /* Полная ширина экрана */
-    min-height: 100vh; /* Минимальная высота равна высоте видимой области (viewport height) */
+    min-height: 300px; /* Минимальная высота */
     overflow: hidden; /* Скрываем переполнение контента за границами */
     background: #1a1a1a; /* Темный фон на случай, если изображение не загрузится */
 }
 
-/* Контейнер для фонового изображения пятого фрейма */
-.frame-5-bg {
-    position: absolute; /* Абсолютное позиционирование относительно .frame-5 */
+/* Контейнер для фонового изображения футера */
+.footer-bg {
+    position: absolute; /* Абсолютное позиционирование относительно .site-footer */
     top: 0; /* Прижато к верху */
     left: 0; /* Прижато к левому краю */
     width: 100%; /* Полная ширина родителя */
@@ -2075,262 +2108,151 @@ body {
     z-index: 0; /* Самый нижний слой - фон */
 }
 
-/* Контейнер контента пятого фрейма */
-.frame-5-content {
+/* Контейнер контента футера */
+.footer-content {
     position: relative; /* Относительное позиционирование для z-index */
     z-index: 10; /* Слой выше фона */
-    padding: 80px 80px; /* Отступы для контента */
-    min-height: 100vh; /* Минимальная высота для заполнения экрана */
+    padding: 60px 80px; /* Отступы для контента */
+    min-height: 300px; /* Минимальная высота */
     display: flex; /* Flexbox для центрирования */
     align-items: center; /* Вертикальное центрирование */
     justify-content: center; /* Горизонтальное центрирование */
 }
 
-/* Обертка для текста */
-.frame-5-text-wrapper {
-    position: relative; /* Относительное позиционирование */
-    z-index: 15; /* Слой выше других элементов */
-    display: flex; /* Flexbox для распределения элементов */
-    flex-direction: column; /* Вертикальное расположение */
-    justify-content: space-between; /* Равномерное распределение по вертикали */
-    align-items: center; /* Горизонтальное центрирование */
-    width: 100%; /* Полная ширина */
-    max-width: 1200px; /* Максимальная ширина для читаемости */
-    min-height: calc(100vh - 160px); /* Минимальная высота минус отступы */
-    padding: 40px 0; /* Вертикальные отступы */
-}
-
-/* Заголовок пятого фрейма */
-.frame-5-title {
-    font-family: 'Playfair Display', 'Cormorant Garamond', serif; /* Декоративные шрифты с засечками */
-    font-size: 42px; /* Размер шрифта */
-    font-weight: 700; /* Жирное начертание */
-    color: #fff; /* Белый цвет текста - единый для всех фреймов */
-    line-height: 1.3; /* Межстрочный интервал */
-    margin: 0 0 40px 0; /* Отступ снизу */
-    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Тень для читаемости */
-    letter-spacing: 2px; /* Расстояние между буквами */
-    text-align: center; /* Центрирование заголовка */
-    width: 100%; /* Полная ширина */
-}
-
-/* Список услуг пятого фрейма */
-.frame-5-services-list {
-    list-style: none; /* Убираем стандартные маркеры списка */
-    padding: 0; /* Без внутренних отступов */
-    margin: 0; /* Без внешних отступов */
-    width: 100%; /* Полная ширина контейнера */
-    flex: 1; /* Растягивается на доступное пространство */
-    display: flex; /* Flexbox для распределения */
-    flex-direction: column; /* Вертикальное расположение */
-    justify-content: space-around; /* Равномерное распределение по вертикали */
-    align-items: center; /* Горизонтальное центрирование */
-}
-
-/* Отдельный элемент услуги */
-.frame-5-service-item {
-    display: flex; /* Flexbox для горизонтального расположения галочки и текста */
-    align-items: flex-start; /* Выравнивание по верхнему краю (для многострочного текста) */
-    gap: 20px; /* Расстояние между галочкой и текстом */
-    padding: 0; /* Без внутренних отступов - убраны видимые контейнеры */
-    background: none; /* Без фона - убраны видимые контейнеры */
-    backdrop-filter: none; /* Без размытия фона - убраны видимые контейнеры */
-    border-radius: 0; /* Без скругления углов - убраны видимые контейнеры */
-    width: 100%; /* Полная ширина контейнера */
-    max-width: 900px; /* Максимальная ширина для читаемости */
-    /* border: none; */ /* Без рамки - убраны видимые контейнеры */
-}
-
-/* Иконка огня */
-.frame-5-check-icon {
-    display: inline-flex; /* Flexbox для центрирования символа */
-    align-items: center; /* Вертикальное выравнивание по центру */
-    justify-content: center; /* Горизонтальное выравнивание по центру */
-    width: auto; /* Автоматическая ширина для эмодзи */
-    height: auto; /* Автоматическая высота для эмодзи */
-    background: none; /* Без фона */
-    color: inherit; /* Наследование цвета */
-    border-radius: 0; /* Без скругления */
-    font-size: 28px; /* Размер символа огня */
-    font-weight: normal; /* Обычное начертание */
-    flex-shrink: 0; /* Запрет сжатия при нехватке места */
-    margin-top: 2px; /* Небольшой отступ сверху для визуального выравнивания */
-    box-shadow: none; /* Без тени */
-    margin-right: 10px; /* Отступ справа от иконки */
-}
-
-/* Текст услуги */
-.frame-5-service-text {
-    font-family: 'Playfair Display', 'Cormorant Garamond', serif; /* Декоративные шрифты с засечками */
-    font-size: 24px; /* Размер шрифта */
-    font-weight: 500; /* Среднее начертание */
-    color: #fff; /* Белый цвет текста - единый для всех фреймов */
-    line-height: 1.6; /* Межстрочный интервал для читаемости */
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Тень для читаемости */
-    letter-spacing: 0.5px; /* Расстояние между буквами */
-    flex: 1; /* Растягивается на доступное пространство */
-}
-
-/* Текст нижней части */
-.frame-5-bottom-text {
+/* Заголовок футера */
+.footer-title {
     font-family: 'Playfair Display', 'Cormorant Garamond', serif; /* Декоративные шрифты с засечками */
     font-size: 36px; /* Размер шрифта */
     font-weight: 700; /* Жирное начертание */
-    color: #fff; /* Белый цвет текста - единый для всех фреймов */
-    line-height: 1.4; /* Межстрочный интервал */
-    margin: 40px 0 0 0; /* Отступ сверху */
+    color: #fff; /* Белый цвет текста */
+    line-height: 1.3; /* Межстрочный интервал */
+    margin: 0 0 30px 0; /* Отступ снизу */
     text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Тень для читаемости */
     letter-spacing: 2px; /* Расстояние между буквами */
-    text-align: center; /* Центрирование текста */
-    width: 100%; /* Полная ширина */
+    text-align: center; /* Центрирование заголовка */
 }
 
-/* Адаптивность для пятого фрейма */
+/* Адрес в футере */
+.footer-address {
+    font-family: 'Playfair Display', 'Cormorant Garamond', serif; /* Декоративные шрифты с засечками */
+    font-size: 28px; /* Размер шрифта */
+    font-weight: 500; /* Среднее начертание */
+    color: #fff; /* Белый цвет текста */
+    line-height: 1.6; /* Межстрочный интервал */
+    margin: 0 0 20px 0; /* Отступ снизу */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Тень для читаемости */
+    letter-spacing: 1px; /* Расстояние между буквами */
+    text-align: center; /* Центрирование текста */
+}
+
+/* Телефон в футере */
+.footer-phone {
+    font-family: 'Playfair Display', 'Cormorant Garamond', serif; /* Декоративные шрифты с засечками */
+    font-size: 28px; /* Размер шрифта */
+    font-weight: 500; /* Среднее начертание */
+    color: #fff; /* Белый цвет текста */
+    line-height: 1.6; /* Межстрочный интервал */
+    margin: 0; /* Без внешних отступов */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Тень для читаемости */
+    letter-spacing: 1px; /* Расстояние между буквами */
+    text-align: center; /* Центрирование текста */
+}
+
+/* Адаптивность для футера */
 @media (max-width: 1600px) {
-    .frame-5-content {
-        padding: 70px 70px;
+    .footer-content {
+        padding: 50px 70px;
     }
 
-    .frame-5-title {
-        font-size: 38px;
-    }
-
-    .frame-5-service-text {
-        font-size: 22px;
-    }
-
-    .frame-5-bottom-text {
+    .footer-title {
         font-size: 32px;
+    }
+
+    .footer-address,
+    .footer-phone {
+        font-size: 26px;
     }
 }
 
 @media (max-width: 1400px) {
-    .frame-5-content {
-        padding: 60px 60px;
+    .footer-content {
+        padding: 45px 60px;
     }
 
-    .frame-5-title {
-        font-size: 34px;
+    .footer-title {
+        font-size: 30px;
     }
 
-    .frame-5-service-text {
-        font-size: 20px;
-    }
-
-    .frame-5-bottom-text {
-        font-size: 28px;
+    .footer-address,
+    .footer-phone {
+        font-size: 24px;
     }
 }
 
 @media (max-width: 1200px) {
-    .frame-5-content {
-        padding: 50px 50px;
+    .footer-content {
+        padding: 40px 50px;
     }
 
-    .frame-5-title {
-        font-size: 30px;
-        margin-bottom: 30px;
-    }
-
-    .frame-5-service-text {
-        font-size: 18px;
-    }
-
-    .frame-5-bottom-text {
-        font-size: 26px;
-    }
-
-    .frame-5-service-item {
-        padding: 20px 30px;
-    }
-}
-
-@media (max-width: 992px) {
-    .frame-5-content {
-        padding: 40px 40px;
-    }
-
-    .frame-5-title {
+    .footer-title {
         font-size: 28px;
         margin-bottom: 25px;
     }
 
-    .frame-5-service-text {
-        font-size: 17px;
+    .footer-address,
+    .footer-phone {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 992px) {
+    .footer-content {
+        padding: 35px 40px;
     }
 
-    .frame-5-bottom-text {
-        font-size: 24px;
+    .footer-title {
+        font-size: 26px;
+        margin-bottom: 20px;
     }
 
-    .frame-5-service-item {
-        padding: 18px 25px;
-        gap: 15px;
-    }
-
-    .frame-5-check-icon {
-        width: 36px;
-        height: 36px;
+    .footer-address,
+    .footer-phone {
         font-size: 20px;
     }
 }
 
 @media (max-width: 768px) {
-    .frame-5-content {
-        padding: 35px 30px;
+    .footer-content {
+        padding: 30px 30px;
     }
 
-    .frame-5-title {
+    .footer-title {
         font-size: 24px;
-        margin-bottom: 20px;
+        margin-bottom: 18px;
     }
 
-    .frame-5-service-text {
-        font-size: 16px;
-    }
-
-    .frame-5-bottom-text {
-        font-size: 20px;
-    }
-
-    .frame-5-service-item {
-        padding: 15px 20px;
-        gap: 12px;
-    }
-
-    .frame-5-check-icon {
-        width: 32px;
-        height: 32px;
+    .footer-address,
+    .footer-phone {
         font-size: 18px;
     }
 }
 
 @media (max-width: 576px) {
-    .frame-5-content {
-        padding: 30px 20px;
+    .site-footer {
+        min-height: 250px;
     }
 
-    .frame-5-title {
+    .footer-content {
+        padding: 25px 20px;
+    }
+
+    .footer-title {
         font-size: 22px;
         margin-bottom: 15px;
     }
 
-    .frame-5-service-text {
-        font-size: 14px;
-    }
-
-    .frame-5-bottom-text {
-        font-size: 18px;
-    }
-
-    .frame-5-service-item {
-        padding: 12px 15px;
-        gap: 10px;
-    }
-
-    .frame-5-check-icon {
-        width: 28px;
-        height: 28px;
+    .footer-address,
+    .footer-phone {
         font-size: 16px;
     }
 }
