@@ -26,4 +26,5 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    # В режиме разработки Django сам раздаёт статику через `django.contrib.staticfiles`.
+    # Привязка STATIC_URL к STATIC_ROOT тут часто ломает отображение статики, если не запускали collectstatic.
