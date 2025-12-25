@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Figma Hero Preview{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/hero.css' %}">
+  <link rel="stylesheet" href="{% static 'css/hero-images.css' %}">
+{% endblock %}
+
+{% block content %}
+  {% include 'pages/sections/hero.html' %}
+{% endblock %}
+
